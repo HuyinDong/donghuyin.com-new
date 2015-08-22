@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Huyin's Blog</title>
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="./lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="./css/styles.css" rel="stylesheet">
+</head>
+<body>
+<header ng-include="'header/header.client.view.html'"></header>
+<div id="masthead">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <h2>Dong
+                    <p class="lead">Stay hungary stay foolish</p>
+                </h2>
+            </div>
+            <div class="col-md-5">
+                <div class="well well-lg">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            Ad Space
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /cont -->
+
+
+</div>
+
+<div ui-view></div>
+
+
+<hr>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <ul class="list-inline">
+                    <li><i class="icon-facebook icon-2x"></i></li>
+                    <li><i class="icon-twitter icon-2x"></i></li>
+                    <li><i class="icon-google-plus icon-2x"></i></li>
+                    <li><i class="icon-pinterest icon-2x"></i></li>
+                </ul>
+
+            </div>
+            <div class="col-sm-6">
+                <p class="pull-right">Built with <i class="icon-heart-empty"></i> at <a href="http://www.bootply.com">Bootply</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- script references -->
+<script src="./lib/jquery/dist/jquery.min.js"></script>
+<script src="./lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./lib/angular/angular.min.js"></script>
+<script src="./lib/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="./lib/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
+<script src="./application.js"></script>
+<script src="./header/header.client.module.js"></script>
+<script src="./header/header.client.controller.js"></script>
+<script src="./content/content.client.module.js"></script>
+<script src="./content/content.client.controller.js"></script>
+</body>
+</html>
