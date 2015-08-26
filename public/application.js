@@ -7,7 +7,8 @@ var mainApplicationModule = angular.module('mainApplicationModule',
         'sidenav',
         'header',
         'content',
-        'lumx'
+        'lumx',
+        'management'
 
     ]);
 

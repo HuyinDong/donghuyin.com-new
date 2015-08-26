@@ -21,7 +21,7 @@ sidenav.controller('sidenavController', function($scope, $timeout, $mdSidenav, $
                 $log.debug("toggle RIGHT is done");
             });
     };
-}).controller('rightController', function($scope, $timeout, $mdSidenav, $log,$http,md5,$mdDialog) {
+}).controller('rightController', function($scope, $timeout, $mdSidenav, $log,$http,md5,$mdDialog,$state) {
     $scope.close = function() {
         $mdSidenav('right').close()
             .then(function(){
@@ -35,7 +35,7 @@ sidenav.controller('sidenavController', function($scope, $timeout, $mdSidenav, $
             var password = md5.createHash($scope.password);
             console.log(username,password);
             if(username == data.data[0].name && password == data.data[0].passwd){
-                alert("OK");
+                window.location = "http://localhost:3001/management";
             }else{
                 var alert = $mdDialog.alert({
                     title: 'Error',
