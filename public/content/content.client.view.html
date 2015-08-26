@@ -1,32 +1,28 @@
-<div class="container" ng-controller = "contentController">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel">
-                <div class="panel-body">
+<div layout="row" layout-align="center"  id = "content" ng-controller = "contentController">
+
+<div flex>
+ <div>
+     <div class = "md-headline">Blog</div>
+        <div class = "md-subhead">Hoping you can find the things you want here.</div>
+     </div>
+    <div id = "list">
                     <h3>{{name}}</h3>
-                    <!--/stories-->
-                    <hr>
-                    <div class="row" ng-repeat = 'article in articles'>
-                        <br>
-                        <div class="col-md-10 col-sm-9">
+                  <div id = "articles">
+                    <div id = "article" ng-repeat = 'article in articles'>
                             <h3>{{article.title}}</h3>
-                            <div class="row">
-                                <div class="col-xs-9">
-                                    <p>{{article.abstract}}</p>
-                                    <p class="lead"><button class="btn btn-default">Read More</button></p>
-                                    <hr>
-                                </div>
-
-                                <div class="col-xs-3"></div>
-                            </div>
-                            <br>
+                        <div class="md-caption">Author : {{article.author}}</div>
+                                    <p class = "md-body-1">{{article.abstract}}</p>
+                                    <p><button class="btn btn--xs btn--flat btn--light-blue">Read More</button></p>
                         </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </div><!--/col-12-->
+                  </div>
     </div>
 
+</div >
+
+    <div flex id = "right" >
+        <div class = "md-headline ">Related Articles</div>
+
+    </div>
 </div>
+
+

@@ -1,16 +1,28 @@
-<header ng-controller="headerController" class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#" class="navbar-brand">{{brand}}</a>
-        <div class="navbar-collapse nav-collapse collapse navbar-header">
-            <ul class="nav navbar-nav">
-                <li ng-repeat="item in nav.bars" class="dropdown"><a href="#"  dropdown-menu class="dropdown-toggle js-activated">{{item.name}}<b ng-show="item.subs.length !=0" class="caret"></b></a>
-                    <ul ng-show="item.subs.length !=0" class="dropdown-menu">
-                        <li ng-repeat="sub in item.subs"><a href="/#/list/{{sub.name}}/{{sub.id}}">{{sub.name}}</a></li>
-                    </ul>
-                </li>
+<div id = 'header' ng-controller="headerController" layout="row">
+
+        <div flex="10">
+    <button class="btn btn--l btn--flat md-button btn--white" lx-ripple>
+       Huyin
+    </button>
+            </div>
+        <div flex="80">
+    <lx-dropdown ng-repeat="item in nav.bars">
+        <button class="btn btn--l btn--flat md-button btn--white" lx-ripple lx-dropdown-toggle>
+            {{item.name}}
+        </button>
+        <lx-dropdown-menu>
+            <ul>
+                <li ng-repeat="sub in item.subs"><a class="dropdown-link btn btn--flat btn--light-blue" href="/#/list/{{sub.name}}/{{sub.id}}">{{sub.name}}</a></li>
             </ul>
+        </lx-dropdown-menu>
+    </lx-dropdown>
         </div>
-        <!-- .nav-collapse-->
+
+    <div flex="10" ng-controller = 'sidenavController'>
+        <md-button ng-click="toggleRight()" class="btn btn--l btn--flat md-button btn--white" >
+            Management
+        </md-button>
+        </div>
     </div>
-    <!-- .container-->
-</header>
+
+    </header>
