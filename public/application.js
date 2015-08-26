@@ -4,8 +4,11 @@
 
 var mainApplicationModule = angular.module('mainApplicationModule',
     [
+        'sidenav',
         'header',
-        'content'
+        'content',
+        'lumx'
+
     ]);
 
 angular.element(document).ready(function(){

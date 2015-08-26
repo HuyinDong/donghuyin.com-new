@@ -2,14 +2,6 @@
  * Created by dongyin on 8/22/15.
  */
 
-header.directive('dropdownMenu', function () {
-    return {
-        link: function (scope, elem) {
-            elem.dropdownHover();
-            elem.dropdown();
-        }
-    };
-});
 
 header.config(['$stateProvider','$urlRouterProvider', function ($stateProvider,$urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
@@ -64,5 +56,7 @@ header.controller('headerController',function($scope,$http,$rootScope,$state){
 
         }
     });
+
+
 
 });
