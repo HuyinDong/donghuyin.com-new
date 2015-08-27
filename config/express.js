@@ -20,6 +20,8 @@ module.exports = function(){
 
     index(app);
     data(app);
+
+
     return app;
 
 }

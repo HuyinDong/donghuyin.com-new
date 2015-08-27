@@ -4,7 +4,7 @@
 
         <md-sidenav   class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
                 <h1 class="md-toolbar-tools" id = 'header'>Login</h1>
-             <form name="userForm">
+            <!--<form action="post" action="'/management">-->
             <md-content ng-controller="rightController" class="md-padding">
                 <div layout="column">
                     <div>
@@ -12,7 +12,7 @@
                     <!-- Use floating label instead of placeholder -->
                     <label>Username</label>
                     <md-icon md-svg-src="imgs/icons/ic_person_24px.svg" class="name"></md-icon>
-                    <input ng-model="name" type="text" required="" name = 'username'>
+                    <input ng-model="name" type="text" name = 'username'>
                   
                 </md-input-container>
                     </div>
@@ -21,7 +21,7 @@
                         <!-- Use floating label instead of placeholder -->
                         <label>Password</label>
                         <md-icon md-svg-src="imgs/icons/ic_place_24px.svg" class="password" ></md-icon>
-                        <input ng-model="userForm.password" type="password">
+                        <input ng-model="password" type="password">
                     </md-input-container>
                     </div>
                 </div>
@@ -38,5 +38,5 @@
                 </div>
 </div>
             </md-content>
-      </form>
+
 </div>

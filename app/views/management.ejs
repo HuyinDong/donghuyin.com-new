@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin | Data Tables</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../lib/plugins/datatables/dataTables.bootstrap.css">
+
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../lib/angular-material/angular-material.css">
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="#" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>A</b>LT</span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>Admin</b></span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar" ng-controller = "managementController">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+
+            <!-- /.search form -->
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu">
+                <li class="header">MAIN NAVIGATION</li>
+                <li class="treeview" ng-click = "goHome()">
+                    <a href="#" >
+                        <i class="fa fa-home"></i> <span>Home</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+
+                </li>
+                <li class="treeview" ng-click = "goConfiguration()">
+                    <a href="#" >
+                        <i class="fa fa-cog"></i> <span>Configuration</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+
+                </li>
+                <li class="treeview" ng-click = "goCatagory()">
+                    <a href="#">
+                        <i class="fa fa-wrench"></i> <span>Catagory</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+
+                </li>
+                <li class="treeview" ng-click = "goList()">
+                    <a href="#">
+                        <i class="fa fa-list"></i> <span>List</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+
+                </li>
+                <li class="treeview" ng-click = "goAdd()">
+                    <a href="#">
+                        <i class="fa fa-plus"></i> <span>Add</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+
+                </li>
+    </ul>
+
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+<div ui-view></div>
+
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 2.3.0
+        </div>
+        <strong>Copyright &copy; 2014-2015 <a href="#">Studio</a>.</strong> All rights reserved.
+    </footer>
+
+
+    <!-- jQuery 2.1.4 -->
+    <script src="../lib/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../lib/angular/angular.min.js"></script>
+    <script src="../lib/angular-animate/angular-animate.min.js"></script>
+    <script src="../lib/angular-aria/angular-aria.min.js"></script>
+    <script src="../lib/angular-material/angular-material.min.js"></script>
+    <script src="../lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <!-- DataTables -->
+    <script src="../lib/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../lib/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../js/app.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../js/demo.js"></script>
+    <script src="../management.js"></script>
+    <script src="./management.client.module.js"></script>
+    <script src="./management.client.routes.js"></script>
+    <script src="./controllers/management.client.controller.js"></script>
+    <script src="./controllers/configuration.client.controller.js"></script>
+    <!-- page script -->
+    <script>
+        $(function () {
+            $("#example1").DataTable();
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false
+            });
+        });
+    </script>
+</body>
+</html>
