@@ -17,6 +17,7 @@
     "bootstrap-hover-dropdown":"~2.0.1",
     "lumx":"0.3.79",
     "angular-material":"0.10.1",
-    "angular-md5":"0.1.8"
+    "angular-md5":"0.1.8",
+    "angular-ui-grid":"3.0.5"
   }
 }
