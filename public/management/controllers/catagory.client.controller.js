@@ -7,13 +7,23 @@ management.controller('catagoryController',function($scope,$http,$rootScope) {
     tran.obj = {
         cid : 30,
         title : 'test',
-        author : 'Chris',
+        author : 'Huyin Dong',
 
         abstract : 'test'
     };
     $scope.insert = function(){
-        $http.post('/management/data', tran).then(function (data) {
+      /*  $http.post('/management/data', tran).then(function (data) {
             console.log(data);
         });
+        */
+        /*
+        $http.delete('/management/data/'+tran.table+'/'+'9',function(data){
+            console.log(data);
+        });
+        */
+        $http.put('/management/data/'+tran.table+'/'+'4',{author : 'Huyin Dong'},function(data){
+            console.log(data);
+        })
     }
+
 });

@@ -11,4 +11,6 @@ module.exports = function(app){
     app.get('/data/content',data.getContent);
     app.get('/data/:table/:key/:val',data.select);
     app.post('/management/data',data.insert);
+    app.delete('/management/data/:table/:id',data.delete);
+    app.put('/management/data/:table/:id',data.update);
 }
