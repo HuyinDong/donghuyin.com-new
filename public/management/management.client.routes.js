@@ -18,7 +18,8 @@ management.config(['$stateProvider', '$urlRouterProvider',
             })
             .state('list',{
                 url : '/list',
-                templateUrl : './templates/list.html'
+                templateUrl : './templates/list.html',
+                controller : 'listController'
             })
             .state('add',{
                 url : '/add',

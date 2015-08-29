@@ -9,4 +9,6 @@ module.exports = function(app){
     app.get('/data/base/:id',data.getBase);
     app.get('/data/class',data.getClass);
     app.get('/data/content',data.getContent);
+    app.get('/data/:table/:key/:val',data.select);
+    app.post('/management/data',data.insert);
 }
