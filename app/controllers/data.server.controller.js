@@ -46,11 +46,28 @@ exports.insert = function(req,res,next){
 };
 
 exports.update = function(req,res,next){
-    
+    var table = 'p_'+req.params.table;
+    var sql = 'update '+table+' set ';
+    var newData = req.body;
+    Object.keys(newData).forEach(function(key) {
+        sql+=key + " = '"+ newData[key]+"' ";
+    });
+    sql+="where id = "+req.params.id;
+    console.log(sql);
+    connection.query(sql,function(err,rows){
+       console.log(rows);
+    });
 }
 
 exports.delete = function(req,res,next){
-
+    var table = 'p_'+req.params.table;
+    var arr = [];
+    arr.push(parseInt(req.params.id));
+    var sql = 'delete from '+table+' where id = ?';
+    console.log("delete",sql);
+    connection.query(sql,arr,function(err,result){
+        console.log(result);
+    });
 }
 
 function call(connection,query,req,res,next){
