@@ -5,9 +5,7 @@ var managementApplicationModule = angular.module('managementApplicationModule',
     [
         'management',
         'ngMaterial',
-        'ngResource',
-        'managementResource',
-        'managementAPI'
+        'ngResource'
     ]);
 
 angular.element(document).ready(function(){

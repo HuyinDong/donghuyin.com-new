@@ -9,7 +9,9 @@ management.controller('catagoryController',
         'ManagementAPI',
         function($scope,$http,$rootScope,ManagementAPI) {
             $scope.selectOne = function() {
-                ManagementAPI.selectOne("newsbase", 9);
-                console.log(result);
-            }
+               ManagementAPI.selectOne("newsbase",4, function(data){
+                  console.log(data);
+               });
+
+               };
 }]);

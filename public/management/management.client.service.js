@@ -2,7 +2,7 @@
  * Created by dongyin on 8/29/15.
  */
 
-    management.factory('ManagementAPI',function($resource){
+    management.factory('ManagementResource',function($resource){
         return $resource(
             '/management/data/:table/:id',{
             },{
