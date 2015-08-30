@@ -19,14 +19,13 @@
                 <div class="box">
                     <div class="box-header" ng-controller = 'catagoryController'>
                         <form>
-                            <input type = 'text' name = 'cid' />
-                            <input type = 'text' name = 'title' />
-                            <input type = 'text' name = 'author' />
-                            <input type = 'text' name = 'abstract' />
-
-
+                            <input type = 'text' name = 'title' ng-model = 'title'/>
+                            <input type = 'text' name = 'author' ng-model = 'author'/>
                         </form>
-                        <button  name ='submit' ng-click = 'insert()'>insert</button>
+                        <button  name ='submit' ng-click = "insert()">insert</button>
+                        <button ng-click = "selectOne()">selectOne</button>
+                        <button ng-click = "update()">Update</button>
+                        <button ng-click = "selectAll()">All</button>
                     </div>
                 </div>
             </div>

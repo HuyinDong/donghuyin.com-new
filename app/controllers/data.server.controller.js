@@ -29,19 +29,29 @@ exports.getContent = function(req,res,next){
     call(connection,'select * from p_newscontent',req,res,next);
 };
 
-exports.select = function(req,res,next){
-    var sql = 'select * from ?? where ?? = ?';
-    var inserts = ["p_"+req.params["table"],req.params["key"],req.params["val"]];
+exports.selectOne = function(req,res,next){
+    console.log("selectOne");
+    var sql = 'select * from ?? where id = ?';
+    var inserts = ["p_"+req.params["table"],req.params["id"]];
     sql = mysql.format(sql,inserts);
     call(connection,sql,req,res,next);
 };
 
+exports.selectAll = function(req,res,next){
+    console.log("selectAll");
+    var sql = 'select * from ??';
+    var inserts = ["p_"+req.params["table"]];
+    sql = mysql.format(sql,inserts);
+    call(connection,sql,req,res,next);
+}
+
 exports.insert = function(req,res,next){
     var table = 'p_'+req.body.table;
     var sql = 'insert into '+table+' set ?';
-    var obj = req.body.obj;
+    var obj = req.body;
+    delete obj['table'];
     connection.query(sql,obj,function(err,result){
-
+        console.log("result",result);
     });
 };
 
@@ -50,10 +60,10 @@ exports.update = function(req,res,next){
     var sql = 'update '+table+' set ';
     var newData = req.body;
     Object.keys(newData).forEach(function(key) {
-        sql+=key + " = '"+ newData[key]+"' ";
+        sql+=key + " = '"+ newData[key]+"',";
     });
-    sql+="where id = "+req.params.id;
-    console.log(sql);
+    sql = sql.substring(0, sql.length - 1);
+    sql+=" where id = "+req.params.id;
     connection.query(sql,function(err,rows){
        console.log(rows);
     });
