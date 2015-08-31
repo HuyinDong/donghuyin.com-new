@@ -19,7 +19,7 @@ management.factory('ManagementAPI',['ManagementResource','$q',
                 },
 
                 update: function (table, id, object,callback) {
-                    ManagementResource.query({table: 'config', id: 1}, function (result) {
+                    ManagementResource.query({table: table, id: id}, function (result) {
                         var keys = Object.keys(object);
                         for(var i = 0 ; i< keys.length;i++){
                             result[0][keys[i]] = object[keys[i]];
@@ -33,6 +33,11 @@ management.factory('ManagementAPI',['ManagementResource','$q',
 
                 insert: function (table, object,callback) {
                     var entry = new ManagementResource();
+                    console.log(entry);
+                    var keys = Object.keys(object);
+                    for(var i = 0 ; i< keys.length;i++){
+                        entry[keys[i]] = object[keys[i]];
+                    }
                     ManagementResource.save({table: table}, entry, function (data) {
                         callback(data);
                     });
