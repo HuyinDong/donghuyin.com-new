@@ -1,0 +1,17 @@
+.catagory{
+    height:5px;
+    margin:0;
+    padding:0;
+    margin-top:18px;
+    margin-left:15px;
+    min-width:60px;
+}
+
+.box li{
+    padding : 5px;
+}
+
+.dialog{
+    width:150px;
+    height:250px;
+}

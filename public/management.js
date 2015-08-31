@@ -5,7 +5,8 @@ var managementApplicationModule = angular.module('managementApplicationModule',
     [
         'management',
         'ngMaterial',
-        'ngResource'
+        'ngResource',
+        'lumx'
     ]);
 
 angular.element(document).ready(function(){

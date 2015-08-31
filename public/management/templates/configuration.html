@@ -14,28 +14,27 @@
     <section class="content">
                 <div class="box" >
                     <div layout = "column">
-                        <form method = 'get' action="'">
+                        <form>
                         <md-content  style="width:350px;">
                             <md-input-container >
                                 <label>Name</label>
-                                <input ng-model="website.name">
+                                <input ng-model="website['name']">
                             </md-input-container>
                             <md-input-container>
                                 <label>Address</label>
-                                <input ng-model="website.address" type="text">
+                                <input ng-model="website['Website Address']" type="text">
                             </md-input-container>
                             <md-input-container>
                                 <label>Keywords</label>
-                                <input ng-model="website.keywords" type="text">
+                                <input ng-model="website['Key Words']" type="text">
                             </md-input-container>
                             <md-input-container>
                                 <label>Remark</label>
-                                <input ng-model="website.remark" type="text">
+                                <input ng-model="website['Remark']" type="text">
                             </md-input-container>
-                            <md-button type = "submit" class="md-primary md-raised">
-                                Submit
+                            <md-button class="md-primary md-raised" ng-click = 'editConfig()'>
+                                Edit
                             </md-button>
-
                         </form>
                         </md-content>
 

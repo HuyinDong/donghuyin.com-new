@@ -6,39 +6,43 @@ management.factory('ManagementAPI',['ManagementResource','$q',
         return {
                 selectOne: function (table, id,callback) {
                     ManagementResource.query({table: table, id: id}, function (result) {
-                        console.log("reslut", result);
                        callback(result);
 
                     });
 
                 },
 
-                selectAll: function (table) {
+                selectAll: function (table,callback) {
                     ManagementResource.query({table: table}, function (result) {
-                        return result;
+                        callback(result);
                     });
                 },
 
-                update: function (table, id, object) {
-                    var result = ManagementResource.query({table: table, id: id}, function (result) {
-                        console.log("update", result);
-                        ManagementResource.update({table: table, id: id}, result[0], function (data) {
-                            return data;
+                update: function (table, id, object,callback) {
+                    ManagementResource.query({table: 'config', id: 1}, function (result) {
+                        var keys = Object.keys(object);
+                        for(var i = 0 ; i< keys.length;i++){
+                            result[0][keys[i]] = object[keys[i]];
+                        }
+                        ManagementResource.update({table: table, id:id}, result[0], function (data) {
+                            callback(data);
                         });
                     });
 
                 },
 
-                insert: function (table, object) {
+                insert: function (table, object,callback) {
                     var entry = new ManagementResource();
-                    ManagementResource.save({table: table}, entry, function () {
-                        return "success"
+                    ManagementResource.save({table: table}, entry, function (data) {
+                        callback(data);
                     });
                 },
 
-                delete: function (table, id) {
-                    ManagementResource.remove({table: table, id: id});
-                    return "success";
+                delete: function (table, id,callback) {
+                    ManagementResource.remove({table: table, id: id},function(data){
+                        callback(data);
+                    });
+
                 }
                 // $http method
                 /*  $http.post('/management/data', tran).then(function (data) {
