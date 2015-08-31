@@ -56,20 +56,28 @@ exports.insert = function(req,res,next){
 };
 
 exports.update = function(req,res,next){
+    console.log("update");
     var table = 'p_'+req.params.table;
     var sql = 'update '+table+' set ';
     var newData = req.body;
     Object.keys(newData).forEach(function(key) {
-        sql+=key + " = '"+ newData[key]+"',";
+        sql+="`"+key + "` = '"+ newData[key]+"',";
     });
     sql = sql.substring(0, sql.length - 1);
     sql+=" where id = "+req.params.id;
     connection.query(sql,function(err,rows){
-       console.log(rows);
+       if(err){
+           res.send(err);
+       }else{
+           res.json({
+               msg:'sucess'
+           })
+       }
     });
 }
 
 exports.delete = function(req,res,next){
+    console.log("delete");
     var table = 'p_'+req.params.table;
     var arr = [];
     arr.push(parseInt(req.params.id));

@@ -2,8 +2,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Data Tables
-            <small>advanced tables</small>
+            Catagory List
+            <small>advanced</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -14,21 +14,64 @@
 
     <!-- Main content -->
     <section class="content">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="box">
-                    <div class="box-header" ng-controller = 'catagoryController'>
-                        <form>
-                            <input type = 'text' name = 'title' ng-model = 'title'/>
-                            <input type = 'text' name = 'author' ng-model = 'author'/>
-                        </form>
-                        <button  name ='submit' ng-click = "insert()">insert</button>
-                        <button ng-click = "selectOne()">selectOne</button>
-                        <button ng-click = "update()">Update</button>
-                        <button ng-click = "selectAll()">All</button>
-                    </div>
-                </div>
-            </div>
+                <div class="box" ng-controller="catagoryController">
+                        <div layout="row" layout-align="center">
+                            <md-input-container>
+                                <label>Add Navbar and Sub</label>
+                                <md-select ng-model="catagory">
+                                    <md-option ng-repeat="item in cata" value="{{item.name}}">{{item.name}}</md-option>
+                                </md-select>
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Navbar Name</label>
+                                <input type="text">
+                            </md-input-container>
+                            <md-input-container style = 'height:3px ;margin-top:15px'>
+                            <md-button class="md-primary md-flat" >
+                                Add
+                            </md-button>
+                                </md-input-container>
+                        </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <ul class="list-group">
+                                    <li class="list-group-item " ng-repeat="item in nav.bars">
+                                        <div layout="row">
+                                        <md-input-container>
+                                        <label>{{item.name}}</label>
+                                        <input type="text" value = "{{item.name}}">
+                                        </md-input-container>
+                                        <md-button class="md-primary md-flat catagory"  >
+                                            Update
+                                        </md-button>
+                                            <md-button class="md-warn md-flat catagory"  >
+                                                Delete
+                                            </md-button>
+                                        </div>
+                                        <ul class="list-group inner">
+                                            <li class="list-group-item" ng-repeat="sub in item.subs">
+                                                <div layout="row">
+                                                <md-input-container>
+                                                    <label>{{sub.name}}</label>
+                                                    <input type="text" value = "{{sub.name}}">
+                                                </md-input-container>
+                                                    <md-button class="md-primary md-flat catagory"  >
+                                                        Update
+                                                    </md-button>
+                                                    <md-button class="md-warn md-flat catagory"  >
+                                                        Delete
+                                                    </md-button>
+                                                </div>
+                                                </li>
+
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        </div>
         </div>
     </section>
 </div>
