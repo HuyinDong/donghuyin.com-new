@@ -2,12 +2,13 @@
  * Created by dongyin on 8/26/15.
  */
 management.controller('configurationController',
-    function($scope,$http,ManagementAPI,$timeout,$mdDialog,$rootScope){
+    function($scope,$http,ManagementAPI,$timeout,$mdDialog,$state){
             var website = {};
             $scope.loading = false;
             $scope.dialogTitle = "Configuration";
             $scope.closeDialog = function(){
                 $mdDialog.hide();
+                $state.go($state.current, {}, {reload: true});
             };
 
             $http.get('/data/config').then(function(data){
@@ -28,13 +29,14 @@ management.controller('configurationController',
                                 console.log( $scope.loading);
                                 $scope.dialogContent = "Success";
                                 $scope.dialogButton = "OK";
-                                console.log($scope.website);
+
                             },2000);
                         }else{
                             $scope.loading = false;
                             $scope.dialogContent = "False";
                             $scope.dialogButton = "OK";
                         }
+
                 });
             };
 
