@@ -2,7 +2,7 @@
  * Created by dongyin on 8/29/15.
  */
 management.factory('ManagementAPI',['ManagementResource','$q',
-    function(ManagementResource,$q) {
+    function(ManagementResource) {
         return {
                 selectOne: function (table, id,callback) {
                     ManagementResource.query({table: table, id: id}, function (result) {
@@ -21,6 +21,7 @@ management.factory('ManagementAPI',['ManagementResource','$q',
                 update: function (table, id, object,callback) {
                     ManagementResource.query({table: table, id: id}, function (result) {
                         var keys = Object.keys(object);
+                        console.log("result",result);
                         for(var i = 0 ; i< keys.length;i++){
                             result[0][keys[i]] = object[keys[i]];
                         }

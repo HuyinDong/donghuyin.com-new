@@ -40,12 +40,12 @@
                                         <div layout="row">
                                         <md-input-container>
                                         <label>{{item.name}}</label>
-                                        <input type="text" value = "{{item.name}}">
+                                        <input type="text" ng-model = "item.name">
                                         </md-input-container>
-                                        <md-button class="md-primary md-flat catagory"  ng-click = 'updateNav'>
+                                        <md-button class="md-primary md-flat catagory" alt = '{{item.id}}' ng-click = 'updateNav(this)'>
                                             Update
                                         </md-button>
-                                            <md-button class="md-warn md-flat catagory"  ng-click="deleteNav">
+                                            <md-button class="md-warn md-flat catagory" alt = '{{item.id}}' ng-click="deleteNav(this)">
                                                 Delete
                                             </md-button>
                                         </div>
@@ -54,12 +54,12 @@
                                                 <div layout="row">
                                                 <md-input-container>
                                                     <label>{{sub.name}}</label>
-                                                    <input type="text" value = "{{sub.name}}">
+                                                    <input type="text" ng-model = "sub.name">
                                                 </md-input-container>
-                                                    <md-button class="md-primary md-flat catagory"  ng-click="updateSubnav">
+                                                    <md-button class="md-primary md-flat catagory"  alt = '{{sub.id}}' ng-click="updateNav(this)">
                                                         Update
                                                     </md-button>
-                                                    <md-button class="md-warn md-flat catagory"  ng-click = "deleteSubnav">
+                                                    <md-button class="md-warn md-flat catagory"   alt = '{{sub.id}}' ng-click = "deleteNav(this)">
                                                         Delete
                                                     </md-button>
                                                 </div>

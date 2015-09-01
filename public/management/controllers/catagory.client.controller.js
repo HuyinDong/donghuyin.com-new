@@ -26,9 +26,7 @@ management.controller('catagoryController',
                        };
                    });
                   $scope.cata = cata;
-               });
 
-            ManagementAPI.selectAll("newsclass", function(data) {
                 var items = data;
                 var parents = [];
                 var subs = [];
@@ -97,11 +95,48 @@ management.controller('catagoryController',
 
             };
 
-            $scope.updateNav = function(){
+            $scope.updateNav = function(obj){
+                var main = false;
+                var target = {};
+                var id = 0;
+                var temp = {};
+                if( typeof obj.sub == 'undefined'){
+                    main = true;
+                    id = obj.item.id;
+                    temp = obj.item;
+                }else{
+                    id = obj.sub.id;
+                    temp = obj.sub;
+                }
+                target.id = temp.id;
+                target.f_id = temp.f_id;
+                target.name = temp.name;
+                target.remark = temp.remark;
+                target.keyword = temp.keyword;
+                $scope.loading = true;
+                $mdDialog.show({
+                    templateUrl : './templates/dialog.html',
+                    scope : $scope
+                });
+                ManagementAPI.update('newsclass',id,target,function(data){
+                    if(data.msg = 'success'){
+                        $timeout(function(){
+                            $scope.loading = false;
+                            console.log( $scope.loading);
+                            $scope.dialogContent = "Success";
+                            $scope.dialogButton = "OK";
 
+                        },2000);
+                    }else{
+                        $scope.loading = false;
+                        $scope.dialogContent = "False";
+                        $scope.dialogButton = "OK";
+                    }
+
+                });
             };
 
-            $scope.deleteNav = function(){
+            $scope.deleteNav = function(obj){
 
             };
 
