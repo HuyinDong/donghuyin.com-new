@@ -28,7 +28,6 @@ management.controller('configurationController',
                         if(data.msg = 'success'){
                             $timeout(function(){
                                 $scope.loading = false;
-                                console.log( $scope.loading);
                                 $scope.dialogContent = "Success";
                                 $scope.dialogButton = "OK";
 

@@ -1,0 +1,58 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header" ng-controller="addController">
+        <h1>
+            {{addOrEdit}}
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+            <li class="active"> {{addOrEdit}}</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="box" >
+            <div layout = "column" >
+                <md-content flex offset="5" style="width:600px">
+                    <md-input-container >
+                        <label>Article Catagory</label>
+                       <!-- <select ng-model="navList" ng-options="c.name group by c.main for c in navList">
+                        </select>-->
+                            <md-select ng-model="article.cid" style="width:200px">
+                                <md-optgroup label="{{single.name}}" ng-repeat = ' single in main'>
+                                    <md-option ng-value="item.f_id" ng-repeat="item in navList | filter: {main: single.name }">{{item.name}}</md-option>
+                                </md-optgroup>
+                            </md-select>
+                        </md-input-container>
+                    </md-input-container>
+                    <md-input-container >
+                        <label>Title</label>
+                        <input ng-model="article.title">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Author</label>
+                        <input ng-model="article.author" type="text">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Abstract</label>
+                        <input ng-model="article.abstract" type="text">
+                        </md-input-container>
+                    <md-input-container>
+                        <label>Keywords</label>
+                        <input ng-model="newsContent.keyword" type="text">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Remark</label>
+                        <input ng-model="newsContent.remark" type="text">
+                    </md-input-container>
+                   </md-content>
+                </md-input-container>
+                <h4 class ="md-title">Content</h4class>
+                <div ckeditor="options" ng-model="newsContent.content"></div>
+                <md-button class="md-primary md-raised"   ng-click = "addArticle()">
+                    Add
+                </md-button>
+            </div>
+        </div>
+    </section>
+</div>

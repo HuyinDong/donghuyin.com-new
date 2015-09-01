@@ -4,7 +4,7 @@
 management.controller('listController',function($scope,$http,$rootScope,uiGridConstants){
     $http.get('/data/base').then(function(data){
         var items = data.data;
-
+        var transferedObj ;
         $rootScope.gridOptions = {
             enableRowSelection:true,
             enableRowHeaderSelection:false,
@@ -20,9 +20,16 @@ management.controller('listController',function($scope,$http,$rootScope,uiGridCo
             //set gridApi on scope
             $rootScope.gridApi = gridApi;
             gridApi.selection.on.rowSelectionChanged($scope,function(row){
-                var msg = 'row selected ' + row.isSelected;
-                console.log(msg);
+                transferedObj = row.entity.id;
             });
     };
+
+        $scope.editLine = function(){
+            $state.go('',{transferedObj : transferedObj});
+        }
+
+        $scope.deleteLine = function(){
+
+        }
 });
 });

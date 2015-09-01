@@ -149,7 +149,6 @@ management.controller('catagoryController',
                             $scope.loading = false;
                             $scope.dialogContent = "Success";
                             $scope.dialogButton = "OK";
-
                         }, 2000);
                     } else {
                         $scope.loading = false;
