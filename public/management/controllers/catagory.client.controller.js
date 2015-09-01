@@ -2,7 +2,6 @@
  * Created by dongyin on 8/27/15.
  */
 management.controller('catagoryController',
-
         function($scope,$http,$rootScope,ManagementAPI,$state,$timeout,$mdDialog) {
             $scope.loading = false;
             $scope.dialogTitle = "Catagory";
@@ -26,7 +25,6 @@ management.controller('catagoryController',
                        };
                    });
                   $scope.cata = cata;
-
                 var items = data;
                 var parents = [];
                 var subs = [];
@@ -96,12 +94,10 @@ management.controller('catagoryController',
             };
 
             $scope.updateNav = function(obj){
-                var main = false;
                 var target = {};
                 var id = 0;
                 var temp = {};
                 if( typeof obj.sub == 'undefined'){
-                    main = true;
                     id = obj.item.id;
                     temp = obj.item;
                 }else{
@@ -122,7 +118,6 @@ management.controller('catagoryController',
                     if(data.msg = 'success'){
                         $timeout(function(){
                             $scope.loading = false;
-                            console.log( $scope.loading);
                             $scope.dialogContent = "Success";
                             $scope.dialogButton = "OK";
 
@@ -136,8 +131,31 @@ management.controller('catagoryController',
                 });
             };
 
-            $scope.deleteNav = function(obj){
+            $scope.deleteNav = function(obj) {
+                var id;
+                if (typeof obj.sub == 'undefined') {
+                    id = obj.item.id;
+                } else {
+                    id = obj.sub.id;
+                }
+                $scope.loading = true;
+                $mdDialog.show({
+                    templateUrl: './templates/dialog.html',
+                    scope: $scope
+                });
+                ManagementAPI.delete('newsclass', id, function (data) {
+                    if (data.msg = 'success') {
+                        $timeout(function () {
+                            $scope.loading = false;
+                            $scope.dialogContent = "Success";
+                            $scope.dialogButton = "OK";
 
+                        }, 2000);
+                    } else {
+                        $scope.loading = false;
+                        $scope.dialogContent = "False";
+                        $scope.dialogButton = "OK";
+                    }
+                });
             };
-
             });
