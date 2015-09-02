@@ -18,8 +18,7 @@ management.config(['$stateProvider', '$urlRouterProvider',
             })
             .state('list',{
                 url : '/list',
-                templateUrl : './templates/list.html',
-                controller : 'listController'
+                templateUrl : './templates/list.html'
             })
             .state('add',{
                 url : '/add',
@@ -27,8 +26,9 @@ management.config(['$stateProvider', '$urlRouterProvider',
                 controller : 'addController'
             })
             .state('edit',{
-                url : '/edit/:id',
-                templateUrl : './templates/addOrEdit.html'
+                url : '/edit/:transferredId',
+                templateUrl : './templates/addOrEdit.html',
+                controller : 'editController'
             })
     }
 ]);

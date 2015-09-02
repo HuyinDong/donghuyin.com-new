@@ -1,6 +1,6 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header" ng-controller="addController">
+    <section class="content-header">
         <h1>
             {{addOrEdit}}
         </h1>
@@ -16,15 +16,12 @@
                 <md-content flex offset="5" style="width:600px">
                     <md-input-container >
                         <label>Article Catagory</label>
-                       <!-- <select ng-model="navList" ng-options="c.name group by c.main for c in navList">
-                        </select>-->
-                            <md-select ng-model="article.cid" style="width:200px">
+                            <md-select ng-model="selectedItem" style="width:200px">
                                 <md-optgroup label="{{single.name}}" ng-repeat = ' single in main'>
-                                    <md-option ng-value="item.f_id" ng-repeat="item in navList | filter: {main: single.name }">{{item.name}}</md-option>
+                                    <md-option ng-value="item.name" ng-repeat="item in navList | filter: {main: single.name }">{{item.name}}</md-option>
                                 </md-optgroup>
                             </md-select>
                         </md-input-container>
-                    </md-input-container>
                     <md-input-container >
                         <label>Title</label>
                         <input ng-model="article.title">
@@ -46,12 +43,13 @@
                         <input ng-model="newsContent.remark" type="text">
                     </md-input-container>
                    </md-content>
-                </md-input-container>
-                <h4 class ="md-title">Content</h4class>
+                <md-input-container>
+                <h4 class ="md-title">Content</h4>
                 <div ckeditor="options" ng-model="newsContent.content"></div>
                 <md-button class="md-primary md-raised"   ng-click = "addArticle()">
-                    Add
+                    {{operate}}
                 </md-button>
+                </md-input-container>
             </div>
         </div>
     </section>

@@ -51,11 +51,13 @@ exports.insert = function(req,res,next){
     var obj = req.body;
     delete obj['table'];
     connection.query(sql,obj,function(err,result){
+        console.log(result);
         if(err){
             res.send(err);
         }else{
             res.json({
-                msg:'sucess'
+                msg:'sucess',
+                insertId : result.insertId
             })
         }
     });
