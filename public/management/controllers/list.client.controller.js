@@ -3,9 +3,9 @@
  */
 management.controller('listController',
     function($scope,$http,$rootScope,uiGridConstants,$state,ManagementAPI,$timeout,$mdDialog){
-    var transferredId;
+        var transferredId;
 
-
+        $scope.isSelected = false;
         $scope.loading = false;
         $scope.dialogTitle = "Delete";
         $scope.closeDialog = function(){
@@ -26,13 +26,23 @@ management.controller('listController',
 
     $http.get('/data/base').then(function(data){
         var items = data.data;
+        console.log(items);
+        for(var i = 0; i< items.length;i++){
+                items[i].date = items[i].date.split("T")[0];
+        }
         $scope.gridOptions.data = items;
+
     });
 
     $scope.gridOptions.onRegisterApi = function(gridApi){
         //set gridApi on scope
         $scope.gridApi = gridApi;
         gridApi.selection.on.rowSelectionChanged($scope,function(row){
+            if(row.isSelected){
+                $scope.isSelected = true;
+            }else{
+                $scope.isSelected = false;
+            }
             transferredId = row.entity.id;
         });
     };
