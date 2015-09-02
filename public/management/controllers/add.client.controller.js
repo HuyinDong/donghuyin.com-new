@@ -55,18 +55,15 @@ management.controller('addController',
                 $scope.navList = navList;
         });
 
-            $scope.test = function(){
-                console.log($scope.selectedItem);
-                $scope.article.cid = $scope.selectedItem.id;
-                console.log($scope.article);
-            };
         $scope.addArticle = function() {
             for(var i = 0 ; i <sub.length; i++){
                 if(sub[i].name == $scope.selectedItem){
                     $scope.article.cid = sub[i].id;
                 }
-            }
-            ;
+            };
+            var date = new Date();
+            $scope.article.date = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDay();
+
             $mdDialog.show({
                 templateUrl: './templates/dialog.html',
                 scope: $scope

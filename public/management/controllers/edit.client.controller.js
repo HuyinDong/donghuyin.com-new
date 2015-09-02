@@ -86,7 +86,8 @@ management.controller('editController',
                     $scope.article.cid  = sub[i].id;
                 }
             }
-            console.log($scope.article.cid);
+            var date = new Date();
+            $scope.article.date = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDay();
             $scope.loading = true;
             $mdDialog.show({
                 templateUrl : './templates/dialog.html',
