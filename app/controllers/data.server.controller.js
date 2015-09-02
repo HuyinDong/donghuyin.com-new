@@ -46,12 +46,19 @@ exports.selectAll = function(req,res,next){
 }
 
 exports.insert = function(req,res,next){
-    var table = 'p_'+req.body.table;
+    var table = 'p_'+req.params.table;
     var sql = 'insert into '+table+' set ?';
     var obj = req.body;
     delete obj['table'];
+    console.log("sql",sql);
     connection.query(sql,obj,function(err,result){
-        console.log("result",result);
+        if(err){
+            res.send(err);
+        }else{
+            res.json({
+                msg:'sucess'
+            })
+        }
     });
 };
 
@@ -84,13 +91,18 @@ exports.delete = function(req,res,next){
     var sql = 'delete from '+table+' where id = ?';
     console.log("delete",sql);
     connection.query(sql,arr,function(err,result){
-        console.log(result);
+        if(err){
+            res.send(err);
+        }else{
+            res.json({
+                msg:'sucess'
+            })
+        }
     });
 }
 
 function call(connection,query,req,res,next){
     connection.query(query,function(err,rows){
-        console.log(rows);
         res.json(rows);
     });
 }

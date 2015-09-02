@@ -2,19 +2,22 @@
  * Created by dongyin on 8/26/15.
  */
 management.controller('configurationController',
-    function($scope,$http,ManagementAPI,$timeout,$mdDialog,$rootScope){
+    function($scope,$http,ManagementAPI,$timeout,$mdDialog,$state){
             var website = {};
             $scope.loading = false;
             $scope.dialogTitle = "Configuration";
             $scope.closeDialog = function(){
                 $mdDialog.hide();
+                $state.go($state.current, {}, {reload: true});
             };
 
             $http.get('/data/config').then(function(data){
                var items = data.data;
                website = items[0];
                 $scope.website = website;
+                console.log(website);
             });
+
             $scope.editConfig = function(){
                 $scope.loading = true;
               $mdDialog.show({
@@ -25,16 +28,16 @@ management.controller('configurationController',
                         if(data.msg = 'success'){
                             $timeout(function(){
                                 $scope.loading = false;
-                                console.log( $scope.loading);
                                 $scope.dialogContent = "Success";
                                 $scope.dialogButton = "OK";
-                                console.log($scope.website);
+
                             },2000);
                         }else{
                             $scope.loading = false;
                             $scope.dialogContent = "False";
                             $scope.dialogButton = "OK";
                         }
+
                 });
             };
 

@@ -23,7 +23,12 @@ management.config(['$stateProvider', '$urlRouterProvider',
             })
             .state('add',{
                 url : '/add',
-                templateUrl : './templates/add.html'
+                templateUrl : './templates/addOrEdit.html',
+                controller : 'addController'
+            })
+            .state('edit',{
+                url : '/edit/:id',
+                templateUrl : './templates/addOrEdit.html'
             })
     }
 ]);

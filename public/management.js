@@ -6,7 +6,8 @@ var managementApplicationModule = angular.module('managementApplicationModule',
         'management',
         'ngMaterial',
         'ngResource',
-        'lumx'
+        'lumx',
+        'ckeditor'
     ]);
 
 angular.element(document).ready(function(){
