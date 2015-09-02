@@ -20,7 +20,7 @@ management.controller('addController',
         $scope.article.title ;
         $scope.article.author;
         $scope.article.abstract;
-        $scope.article.cid ;
+        $scope.article.cid =0;
 
         $scope.newsContent = {};
 
@@ -51,8 +51,6 @@ management.controller('addController',
                     }
                 $scope.main = main;
                 $scope.navList = navList;
-
-
 
         });
 

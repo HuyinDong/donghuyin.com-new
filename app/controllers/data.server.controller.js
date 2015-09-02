@@ -50,7 +50,6 @@ exports.insert = function(req,res,next){
     var sql = 'insert into '+table+' set ?';
     var obj = req.body;
     delete obj['table'];
-    console.log("sql",sql);
     connection.query(sql,obj,function(err,result){
         if(err){
             res.send(err);
