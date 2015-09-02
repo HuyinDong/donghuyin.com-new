@@ -45,9 +45,7 @@ management.controller('listController',
 
 
     $scope.editLine = function(){
-        $timeout(function () {
             $state.go('edit', {transferredId: transferredId});
-        },1000);
     }
 
     $scope.deleteLine = function(){
