@@ -20,13 +20,15 @@ management.controller('addController',
         $scope.article.title ;
         $scope.article.author;
         $scope.article.abstract;
-        $scope.article.cid ;
-
+        $scope.article.cid =0;
+        $scope.operate = "Add"
         $scope.newsContent = {};
 
         $scope.newsContent.keyword;
         $scope.newsContent.remark;
         $scope.newsContent.content;
+
+        $scope.selectedItem ;
         var sub = [];
         var main = [];
         var navList = [];
@@ -44,36 +46,36 @@ management.controller('addController',
                                 navList.push({
                                     name : sub[i].name,
                                     main : main[j].name,
-                                    f_id : sub[i].f_id
+                                    id : sub[i].id
                                 })
                             }
                         }
                     }
                 $scope.main = main;
                 $scope.navList = navList;
-
-
-
         });
 
         $scope.addArticle = function() {
-            $scope.newsContent.id = $scope.article.cid;
-            console.log($scope.article);
-            console.log($scope.newsContent);
+            for(var i = 0 ; i <sub.length; i++){
+                if(sub[i].name == $scope.selectedItem){
+                    $scope.article.cid = sub[i].id;
+                }
+            };
+            var date = new Date();
+            $scope.article.date = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDay();
+
             $mdDialog.show({
                 templateUrl: './templates/dialog.html',
                 scope: $scope
             });
 
             ManagementAPI.insert("newsbase", $scope.article, function (data) {
-                console.log(data);
                 if (data.msg = 'success') {
+                    $scope.newsContent.id = data.insertId;
                     ManagementAPI.insert("newscontent", $scope.newsContent, function (data) {
-                        console.log(data);
                         if (data.msg = 'success') {
                             $timeout(function () {
                                 $scope.loading = false;
-                                console.log($scope.loading);
                                 $scope.dialogContent = "Success";
                                 $scope.dialogButton = "OK";
                             }, 2000);

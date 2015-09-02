@@ -1,35 +1,84 @@
 /**
  * Created by dongyin on 8/27/15.
  */
-management.controller('listController',function($scope,$http,$rootScope,uiGridConstants){
-    $http.get('/data/base').then(function(data){
-        var items = data.data;
-        var transferedObj ;
-        $rootScope.gridOptions = {
-            enableRowSelection:true,
-            enableRowHeaderSelection:false,
-            multiSelect : false,
-            columnDefs: [
-                { name: 'title', },
-                { name: 'author' },
-                { name: 'date' }
-            ],
-            data: items
+management.controller('listController',
+    function($scope,$http,$rootScope,uiGridConstants,$state,ManagementAPI,$timeout,$mdDialog){
+        var transferredId;
+
+        $scope.isSelected = false;
+        $scope.loading = false;
+        $scope.dialogTitle = "Delete";
+        $scope.closeDialog = function(){
+            $mdDialog.hide();
+            $state.go($state.current, {}, {reload: true});
         };
-        $rootScope.gridOptions.onRegisterApi = function(gridApi){
-            //set gridApi on scope
-            $rootScope.gridApi = gridApi;
-            gridApi.selection.on.rowSelectionChanged($scope,function(row){
-                transferedObj = row.entity.id;
-            });
+
+        $scope.gridOptions = {
+        enableRowSelection:true,
+        enableRowHeaderSelection:false,
+        multiSelect : false,
+        columnDefs: [
+            { name: 'title', },
+            { name: 'author' },
+            { name: 'date' }
+        ],
     };
 
-        $scope.editLine = function(){
-            $state.go('',{transferedObj : transferedObj});
+    $http.get('/data/base').then(function(data){
+        var items = data.data;
+        console.log(items);
+        for(var i = 0; i< items.length;i++){
+                items[i].date = items[i].date.split("T")[0];
         }
+        $scope.gridOptions.data = items;
 
-        $scope.deleteLine = function(){
+    });
 
-        }
-});
+    $scope.gridOptions.onRegisterApi = function(gridApi){
+        //set gridApi on scope
+        $scope.gridApi = gridApi;
+        gridApi.selection.on.rowSelectionChanged($scope,function(row){
+            if(row.isSelected){
+                $scope.isSelected = true;
+            }else{
+                $scope.isSelected = false;
+            }
+            transferredId = row.entity.id;
+        });
+    };
+
+
+    $scope.editLine = function(){
+        $state.go('edit',{transferredId : transferredId});
+    }
+
+    $scope.deleteLine = function(){
+        $scope.loading = true;
+        $mdDialog.show({
+            templateUrl : './templates/dialog.html',
+            scope : $scope
+        });
+        ManagementAPI.delete('newsbase',transferredId,function(data){
+            if(data.msg = 'success') {
+                ManagementAPI.delete('newsbase', transferredId, function (data) {
+                    if (data.msg = 'success') {
+                        $timeout(function () {
+                            $scope.loading = false;
+                            $scope.dialogContent = "Success";
+                            $scope.dialogButton = "OK";
+                        }, 2000);
+                    } else {
+                        $scope.loading = false;
+                        $scope.dialogContent = "False";
+                        $scope.dialogButton = "OK";
+                    }
+
+                });
+            }else{
+                $scope.loading = false;
+                $scope.dialogContent = "False";
+                $scope.dialogButton = "OK";
+            }
+            });
+    }
 });

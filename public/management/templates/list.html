@@ -7,8 +7,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Tables</a></li>
-            <li class="active">Data tables</li>
+            <li class="active">List</li>
         </ol>
     </section>
 
@@ -17,13 +16,13 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
-                    <div class="box-header">
-                        <div ui-grid="gridOptions" ui-grid-selection class="grid"></div>
+                    <div class="box-header" >
+                        <div ui-grid="gridOptions" ui-grid-selection class="grid" ></div>
                     </div>
-                    <md-button ng-click="editLine()" class="md-primary md-raised">
+                    <md-button ng-click="editLine()" ng-disabled="!isSelected" class="md-primary md-raised">
                         Edit
                     </md-button>
-                    <md-button ng-click="deleteLine()"  class="md-warn md-raised">
+                    <md-button ng-click="deleteLine()"  ng-disabled="!isSelected" class="md-warn md-raised">
                     Delete
                 </md-button>
                 </div>
