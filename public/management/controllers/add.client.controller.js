@@ -63,10 +63,10 @@ management.controller('addController',
         $scope.addArticle = function() {
             for(var i = 0 ; i <sub.length; i++){
                 if(sub[i].name == $scope.selectedItem){
-                    $scope.newsContent.id = sub[i].id;
+                    $scope.article.cid = sub[i].id;
                 }
             }
-            $scope.article.cid = $scope.selectedItem.id;
+            ;
             $mdDialog.show({
                 templateUrl: './templates/dialog.html',
                 scope: $scope

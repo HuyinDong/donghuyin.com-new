@@ -81,6 +81,12 @@ management.controller('editController',
         });
 
         $scope.addArticle = function() {
+            for(var i = 0; i< sub.length;i++){
+                if(sub[i].name == $scope.selectedItem){
+                    $scope.article.cid  = sub[i].id;
+                }
+            }
+            console.log($scope.article.cid);
             $scope.loading = true;
             $mdDialog.show({
                 templateUrl : './templates/dialog.html',
@@ -94,7 +100,6 @@ management.controller('editController',
                                 $scope.loading = false;
                                 $scope.dialogContent = "Success";
                                 $scope.dialogButton = "OK";
-
                             }, 2000);
                         } else {
                             $scope.loading = false;
