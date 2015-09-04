@@ -21,15 +21,16 @@ sidenav.controller('sidenavController', function($scope, $timeout, $mdSidenav, $
                 $log.debug("toggle RIGHT is done");
             });
     };
-}).controller('rightController', function($scope, $timeout, $mdSidenav, $log,$http,md5,$mdDialog,$state) {
+}).controller('rightController',
+    function($scope, $timeout, $mdSidenav, $log,$http,md5,$mdDialog,$state) {
     $scope.close = function() {
         $mdSidenav('right').close()
             .then(function(){
                 $log.debug("close RIGHT is done");
             });
     };
-    $scope.login = function() {
-        $http.get('/data/admin').then(function (data) {
+    /*$scope.login = function() {
+        /*$http.get('/data/admin').then(function (data) {
             var user = data.data;
             var username = md5.createHash($scope.name);
             var password = md5.createHash($scope.password);
@@ -46,5 +47,6 @@ sidenav.controller('sidenavController', function($scope, $timeout, $mdSidenav, $
                     .show( alert )
             }
         });
-    }
+
+    };*/
 });

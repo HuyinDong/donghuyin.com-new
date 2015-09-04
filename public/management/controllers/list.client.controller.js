@@ -38,24 +38,20 @@ management.controller('listController',
         //set gridApi on scope
         $scope.gridApi = gridApi;
         gridApi.selection.on.rowSelectionChanged($scope,function(row){
-            if(row.isSelected){
-                $scope.isSelected = true;
-            }else{
-                $scope.isSelected = false;
-            }
+            $scope.isSelected = row.isSelected;
             transferredId = row.entity.id;
         });
     };
 
 
     $scope.editLine = function(){
-        $state.go('edit',{transferredId : transferredId});
+            $state.go('edit', {transferredId: transferredId});
     }
 
     $scope.deleteLine = function(){
         $scope.loading = true;
         $mdDialog.show({
-            templateUrl : './templates/dialog.html',
+            templateUrl : './management/templates/dialog.html',
             scope : $scope
         });
         ManagementAPI.delete('newsbase',transferredId,function(data){

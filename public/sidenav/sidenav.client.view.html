@@ -4,16 +4,15 @@
 
         <md-sidenav   class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
                 <h1 class="md-toolbar-tools" id = 'header'>Login</h1>
-            <!--<form action="post" action="'/management">-->
-            <md-content ng-controller="rightController" class="md-padding">
-                <div layout="column">
+
+                <div layout="column" ng-controller="rightController" class="md-padding">
+                    <form method="post" action="/login">
                     <div>
                 <md-input-container class="md-icon-float">
                     <!-- Use floating label instead of placeholder -->
                     <label>Username</label>
                     <md-icon md-svg-src="imgs/icons/ic_person_24px.svg" class="name"></md-icon>
-                    <input ng-model="name" type="text" name = 'username'>
-                  
+                    <input  type="text" name = "username">
                 </md-input-container>
                     </div>
                     <div>
@@ -21,13 +20,19 @@
                         <!-- Use floating label instead of placeholder -->
                         <label>Password</label>
                         <md-icon md-svg-src="imgs/icons/ic_place_24px.svg" class="password" ></md-icon>
-                        <input ng-model="password" type="password">
+                        <input  type="password" name = "password">
                     </md-input-container>
                     </div>
+                        <div>
+                            <md-button type = 'submit' class="md-primary">
+                                Login
+                            </md-button>
+                        </div>
+                        </form>
                 </div>
-                <div layout = 'row'>
+               <!-- <div layout = 'row'>
                     <div>
-                        <md-button ng-click="login()" class="md-primary">
+                        <md-button type = 'submit' class="md-primary">
                             Login
                         </md-button>
                     </div>
@@ -35,8 +40,15 @@
                 <md-button ng-click="close()" class="md-primary">
                     Close
                 </md-button>
-                </div>
+                </div> -->
+
 </div>
-            </md-content>
+<!--<form method="post" action="/login">
+    <input type="text" name ="username"/>
+    <input type="password" name = "password"/>
+    <input type="submit" value = "submit"/>
+</form>
+-->
+            </md-sidenav>
 
 </div>
