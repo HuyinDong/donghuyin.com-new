@@ -5,29 +5,29 @@ management.config(['$stateProvider', '$urlRouterProvider',
         $stateProvider
             .state('home',{
                 url : '/',
-                templateUrl :'./templates/welcome.html'
+                templateUrl :'./management/templates/welcome.html'
             })
             .state('configuration', {
                 url: '/configuration',
-                templateUrl: './templates/configuration.html',
+                templateUrl: './management/templates/configuration.html',
                 controller : 'configurationController'
             })
             .state('catagory',{
                 url : '/catagory',
-                templateUrl : './templates/catagory.html'
+                templateUrl : './management/templates/catagory.html'
             })
             .state('list',{
                 url : '/list',
-                templateUrl : './templates/list.html'
+                templateUrl : './management/templates/list.html'
             })
             .state('add',{
                 url : '/add',
-                templateUrl : './templates/addOrEdit.html',
+                templateUrl : './management/templates/addOrEdit.html',
                 controller : 'addController'
             })
             .state('edit',{
                 url : '/edit/:transferredId',
-                templateUrl : './templates/addOrEdit.html',
+                templateUrl : './management/templates/addOrEdit.html',
                 controller : 'editController'
             })
     }

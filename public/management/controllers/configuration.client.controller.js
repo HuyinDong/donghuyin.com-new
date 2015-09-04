@@ -21,7 +21,7 @@ management.controller('configurationController',
             $scope.editConfig = function(){
                 $scope.loading = true;
               $mdDialog.show({
-                    templateUrl : './templates/dialog.html',
+                    templateUrl : './management/templates/dialog.html',
                     scope : $scope
               });
                 ManagementAPI.update('config',1,$scope.website,function(data){

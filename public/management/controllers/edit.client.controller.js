@@ -90,7 +90,7 @@ management.controller('editController',
             $scope.article.date = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDay();
             $scope.loading = true;
             $mdDialog.show({
-                templateUrl : './templates/dialog.html',
+                templateUrl : './management/templates/dialog.html',
                 scope : $scope
             });
             ManagementAPI.update('newsbase',$scope.newsContent.id,$scope.article,function(data){

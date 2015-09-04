@@ -51,7 +51,7 @@ management.controller('listController',
     $scope.deleteLine = function(){
         $scope.loading = true;
         $mdDialog.show({
-            templateUrl : './templates/dialog.html',
+            templateUrl : './management/templates/dialog.html',
             scope : $scope
         });
         ManagementAPI.delete('newsbase',transferredId,function(data){

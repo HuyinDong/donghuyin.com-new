@@ -58,7 +58,7 @@ management.controller('catagoryController',
             $scope.addCata = function(){
                 var obj = {};
                 $mdDialog.show({
-                    templateUrl : './templates/dialog.html',
+                    templateUrl : './management/templates/dialog.html',
                     scope : $scope
                 });
                 if($scope.catagory == 'Add Navbar'){
@@ -111,7 +111,7 @@ management.controller('catagoryController',
                 target.keyword = temp.keyword;
                 $scope.loading = true;
                 $mdDialog.show({
-                    templateUrl : './templates/dialog.html',
+                    templateUrl : './management/templates/dialog.html',
                     scope : $scope
                 });
                 ManagementAPI.update('newsclass',id,target,function(data){
@@ -140,7 +140,7 @@ management.controller('catagoryController',
                 }
                 $scope.loading = true;
                 $mdDialog.show({
-                    templateUrl: './templates/dialog.html',
+                    templateUrl: './management/templates/dialog.html',
                     scope: $scope
                 });
                 ManagementAPI.delete('newsclass', id, function (data) {

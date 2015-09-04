@@ -65,7 +65,7 @@ management.controller('addController',
             $scope.article.date = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDay();
 
             $mdDialog.show({
-                templateUrl: './templates/dialog.html',
+                templateUrl: './management/templates/dialog.html',
                 scope: $scope
             });
 
