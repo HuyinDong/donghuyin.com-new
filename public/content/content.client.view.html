@@ -12,9 +12,9 @@
             <div class="divider divider--dark"></div>
             <ul class="list mt++">
                 <li class="list-row" ng-repeat = 'article in articles'>
-                    <div class="list-row__content">
-                        <span class="display-block fs-display-1"><a href="/#/article/{{article.cid}}/{{article.id}}">{{article.title}}</a></span>
-                        <span class="display-block fs-body-3 tc-black-2">{{article.abstract}}</span>
+                    <div class="list-row__content ">
+                        <span class="fs-headline display-block "><a style="text-decoration:none;"  class = ' tc-blue-300 p+' href="/#/article/{{article.cid}}/{{article.id}}">{{article.title}}</a></span>
+                        <span class="display-block fs-body-3 tc-black">{{article.abstract}}</span>
                     </div>
                 </li>
                 </ul>
