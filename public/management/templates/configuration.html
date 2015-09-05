@@ -20,16 +20,20 @@
                                 <input ng-model="website['name']">
                             </md-input-container>
                             <md-input-container>
-                                <label>Address</label>
-                                <input ng-model="website['Website Address']" type="text">
+                                <label>Introduction</label>
+                                <input ng-model="website.introduction" type="text">
                             </md-input-container>
                             <md-input-container>
-                                <label>Keywords</label>
-                                <input ng-model="website['Key Words']" type="text">
+                                <label>Email</label>
+                                <input ng-model="website.email" type="text">
                             </md-input-container>
                             <md-input-container>
-                                <label>Remark</label>
-                                <input ng-model="website['Remark']" type="text">
+                                <label>Github</label>
+                                <input ng-model="website.github" type="text">
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Url</label>
+                                <input ng-model="website.url" type="text">
                             </md-input-container>
                             <md-button class="md-primary md-raised" ng-click = 'editConfig()'>
                                 Edit

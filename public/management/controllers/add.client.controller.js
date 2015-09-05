@@ -20,6 +20,8 @@ management.controller('addController',
         $scope.article.title ;
         $scope.article.author;
         $scope.article.abstract;
+        $scope.article.lecture;
+        $scope.article.week;
         $scope.article.cid =0;
         $scope.operate = "Add"
         $scope.newsContent = {};

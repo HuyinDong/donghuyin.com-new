@@ -1,7 +1,8 @@
 
 <div id = 'article-content'>
 <div class = "md-headline" layout = 'column' layout-align ='center center'>{{article.title}}</div>
-<div class = "md-subhead" flex offset = '5'>Author : {{article.author}}</div>
+    <div class = "md-subhead" flex offset = '5'>Week : {{article.week}}</div>
+<div class = "md-subhead" flex offset = '5'>Lecture : {{article.lecture}}</div>
 <div class = "md-subhead" flex offset = '5'>Date : {{article.date | date : 'MM/dd/yyyy' : timezone}}</div>
 <div class = "md-subhead" flex offset = '5'>Abstract : {{article.abstract}}</div>
     <div class = "md-subhead" flex offset = '5'>Keywords : {{content.keyword}}</div>

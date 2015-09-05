@@ -16,25 +16,42 @@
 <header ng-include="'header/header.client.view.html'"></header>
 
 <div layout = 'row'>
-<div flex = '20' id = 'left' >
+<div flex = '20' id = 'left' ng-controller = 'introductionController'>
     <div layout="column" layout-align ='center'>
         <div layout="row">
     <div class="round">
-        <img src="./imgs/a.png" />
+        <img src={{me.url}} />
     </div>
             <div>
-    <p id = 'myname'>Huyin Dong</p>
+    <p id = 'myname' class = 'tc-blue-200'>{{me.name}}</p>
     </div>
             </div>
-    <div >
+        <div class="tc-black-1" flex-container="column" flex-align="space-between center" style="height: 100px">
+            <div>
+                <div class="p+"><h4>Introduction</h4>
+                <p>{{me.introduction}}</p>
+                </div>
+                <div class="p+"><h4>Email</h4>
+                    <p>{{me.email}}</p>
+                </div>
+                <div class="p+"><h4>Github</h4>
+                    <p>{{me.github}}</p>
+                </div>
+            </div>
+        </div>
+        </div>
+
+      <!-- <div layout = 'column' flex-align="space-between center" >
+    <div class="p+ bgc-red-500" >
     <h4>Introduction</h4>
-    <p>I'm a graduate student in the University of the Disctrict of Columbia</p>
+    <p></p>
     </div>
-        <div >
+        <div flex>
             <h4>Email</h4>
             <p>donghuyin@gmail.com</p>
         </div>
        </div>
+    </div>-->
 </div>
 <div ui-view flex = '60' class="md-whiteframe-z2"></div>
     <div flex="20"   id = "right" >
@@ -70,6 +87,8 @@
 <script src="./content/content.client.controller.js"></script>
     <script src="./article/article.client.module.js"></script>
     <script src="./article/article.client.controller.js"></script>
+    <script src="./introduction/introduction.client.module.js"></script>
+    <script src="./introduction/introduction.client.controller.js"></script>
 <script src="./management/management.client.module.js"></script>
 
     <script src="./management/management.client.service.js"></script>
