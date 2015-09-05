@@ -12,22 +12,13 @@
             <ul class="list mt++">
                 <li class="list-row" ng-repeat = 'article in articles'>
                     <div class="list-row__content">
-                        <span class="display-block fs-display-1">{{article.title}}</span>
+                        <span class="display-block fs-display-1"><a href="/#/article/{{sub.name}}/{{sub.id}}">{{article.title}}</a></span>
                         <span class="display-block fs-body-3 tc-black-2">{{article.abstract}}</span>
                     </div>
                 </li>
                 </ul>
         </div>
         </div>
-         <!--   <h3>{{name}}</h3>
-                  <div id = "articles">
-                    <div id = "article" ng-repeat = 'article in articles'>
-                            <h3>{{article.title}}</h3>
-                        <div class="md-caption">Author : {{article.author}}</div>
-                                    <p class = "md-body-1">{{article.abstract}}</p>
-                                    <p><button class="btn btn--xs btn--flat btn--light-blue">Read More</button></p>
-                        </div>
-                  </div>-->
     </div>
 
 </div >
