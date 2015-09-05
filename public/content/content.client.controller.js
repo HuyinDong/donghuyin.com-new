@@ -11,6 +11,7 @@ content.controller('contentController',function($scope,$http,$stateParams){
         $http.get('/data/base/' + $stateParams.id).then(function (data) {
             $scope.articles = data.data;
             $scope.name = $stateParams.name;
+            console.log(data.data);
         });
     }
 });

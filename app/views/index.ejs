@@ -10,15 +10,39 @@
     <link rel="stylesheet" href="./lib/angular-material/angular-material.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <link rel="stylesheet" href="./css/styles.css">
+
 </head>
 <body>
 <header ng-include="'header/header.client.view.html'"></header>
 
-
-
-<div ui-view></div>
-
-<div ng-include="'sidenav/sidenav.client.view.html'"></div>
+<div layout = 'row'>
+<div flex = '20' id = 'left' >
+    <div layout="column" layout-align ='center'>
+        <div layout="row">
+    <div class="round">
+        <img src="./imgs/a.png" />
+    </div>
+            <div>
+    <p id = 'myname'>Huyin Dong</p>
+    </div>
+            </div>
+    <div >
+    <h4>Introduction</h4>
+    <p>I'm a graduate student in the University of the Disctrict of Columbia</p>
+    </div>
+        <div >
+            <h4>Email</h4>
+            <p>donghuyin@gmail.com</p>
+        </div>
+       </div>
+</div>
+<div ui-view flex = '60' class="md-whiteframe-z2"></div>
+    <div flex="20"   id = "right" >
+        <div id = 'related'>
+        <div  class = "md-headline " layout="column" layout-align="center center">Reserved for Ads</div>
+    </div>
+    </div>
+<div   ng-include="'sidenav/sidenav.client.view.html'"></div>
 
 <footer>
 
@@ -30,10 +54,13 @@
 <script src="./lib/angular-aria/angular-aria.min.js"></script>
 <script src="./lib/angular-material/angular-material.min.js"></script>
 <script src="./lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src = "./lib/angular-resource/angular-resource.min.js"></script>
 <script src="./lib/angular-md5/angular-md5.min.js"></script>
+    <script src="./lib/angular-ui-grid/ui-grid.min.js"></script>
 <script src="./lib/velocity/velocity.js"></script>
 <script src="./lib/moment/min/moment-with-locales.js"></script>
 <script src="./lib/lumx/dist/lumx.js"></script>
+
 <script src="./application.js"></script>
 <script src="./sidenav/sidenav.client.module.js"></script>
 <script src="./sidenav/sidenav.client.controller.js"></script>
@@ -41,9 +68,13 @@
 <script src="./header/header.client.controller.js"></script>
 <script src="./content/content.client.module.js"></script>
 <script src="./content/content.client.controller.js"></script>
+    <script src="./article/article.client.module.js"></script>
+    <script src="./article/article.client.controller.js"></script>
 <script src="./management/management.client.module.js"></script>
-<script src="./management/management.client.routes.js"></script>
-<script src="./management/controllers/management.client.controller.js"></script>
 
+    <script src="./management/management.client.service.js"></script>
+    <script src="./management/management.client.api.js"></script>
+<script src="./management/controllers/management.client.controller.js"></script>
+</div>
 </body>
 </html>

@@ -15,6 +15,11 @@ header.config(['$stateProvider','$urlRouterProvider', function ($stateProvider,$
             url: '/list/:name/:id',
             templateUrl : './content/content.client.view.html',
             controller: 'contentController'
+        })
+        .state('article',{
+            url:'/article/:cid/:id',
+            templateUrl : './article/article.client.view.html',
+            controller : 'articleController'
         });
 }]);
 
