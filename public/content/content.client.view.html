@@ -1,4 +1,5 @@
-<div layout="row"  id = "content" ng-controller = "contentController"  >
+<div layout="row"  id ='main'>
+<div   id = "content" ng-controller = "contentController"  >
 
 <div flex = '80' >
  <div id = 'content-header'>
@@ -12,7 +13,7 @@
             <ul class="list mt++">
                 <li class="list-row" ng-repeat = 'article in articles'>
                     <div class="list-row__content">
-                        <span class="display-block fs-display-1"><a href="/#/article/{{sub.name}}/{{sub.id}}">{{article.title}}</a></span>
+                        <span class="display-block fs-display-1"><a href="/#/article/{{article.cid}}/{{article.id}}">{{article.title}}</a></span>
                         <span class="display-block fs-body-3 tc-black-2">{{article.abstract}}</span>
                     </div>
                 </li>

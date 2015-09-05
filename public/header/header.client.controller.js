@@ -17,7 +17,7 @@ header.config(['$stateProvider','$urlRouterProvider', function ($stateProvider,$
             controller: 'contentController'
         })
         .state('article',{
-            url:'/article/:name/:id',
+            url:'/article/:cid/:id',
             templateUrl : './article/article.client.view.html',
             controller : 'articleController'
         });

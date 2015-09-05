@@ -1,7 +1,15 @@
 
-
-
-<md-content layout-padding>
-    Lorem ipsum dolor sit amet, ne quod novum mei.
+<div id = 'article-content'>
+<div class = "md-headline" layout = 'column' layout-align ='center center'>{{article.title}}</div>
+<div class = "md-subhead" flex offset = '5'>Author : {{article.author}}</div>
+<div class = "md-subhead" flex offset = '5'>Date : {{article.date | date : 'MM/dd/yyyy' : timezone}}</div>
+<div class = "md-subhead" flex offset = '5'>Abstract : {{article.abstract}}</div>
+    <div class = "md-subhead" flex offset = '5'>Keywords : {{content.keyword}}</div>
+    <div class = "md-subhead" flex offset = '5'>Remark : {{content.remark}}</div>
+</div>
+<md-content layout-padding ng-repeat = 'x in doc'>
+    {{x.innerText}}
 </md-content>
+</div>
+
 

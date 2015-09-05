@@ -51,11 +51,18 @@
   min-height:608px;
 
 }
-
+#main{
+  min-height:608px;
+  }
 #content-header{
   margin-bottom: 50px;
 }
 
 #related{
   margin-top:50px;
+}
+
+#article-content{
+  margin-top : 50px;,
+  padding : 50px;
 }
