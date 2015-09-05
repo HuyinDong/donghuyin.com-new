@@ -10,15 +10,39 @@
     <link rel="stylesheet" href="./lib/angular-material/angular-material.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <link rel="stylesheet" href="./css/styles.css">
+
 </head>
 <body>
 <header ng-include="'header/header.client.view.html'"></header>
 
-
-
-<div ui-view></div>
-
-<div ng-include="'sidenav/sidenav.client.view.html'"></div>
+<div layout = 'row'>
+<div flex = '20' id = 'left' class="md-whiteframe-z2">
+    <div layout="column" layout-align ='center'>
+        <div layout="row">
+    <div class="round">
+        <img src="./imgs/a.png" />
+    </div>
+            <div>
+    <p id = 'myname'>Huyin Dong</p>
+    </div>
+            </div>
+    <div >
+    <h4>Introduction</h4>
+    <p>I'm a graduate student in the University of the Disctrict of Columbia</p>
+    </div>
+        <div >
+            <h4>Email</h4>
+            <p>donghuyin@gmail.com</p>
+        </div>
+       </div>
+</div>
+<div ui-view flex = '60'></div>
+    <div flex="20"   id = "right" class="md-whiteframe-z2">
+        <div id = 'related'>
+        <div  class = "md-headline " layout="column" layout-align="center center">Related Articles</div>
+    </div>
+    </div>
+<div   ng-include="'sidenav/sidenav.client.view.html'"></div>
 
 <footer>
 
@@ -44,6 +68,6 @@
 <script src="./management/management.client.module.js"></script>
 <script src="./management/management.client.routes.js"></script>
 <script src="./management/controllers/management.client.controller.js"></script>
-
+</div>
 </body>
 </html>
