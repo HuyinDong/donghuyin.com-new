@@ -75,7 +75,6 @@ management.controller('editController',
                 }
             }
                 ManagementAPI.selectOne("newscontent", $stateParams.transferredId, function (data) {
-                    console.log(data);
                     $scope.newsContent.keyword = data[0].keyword;
                     $scope.newsContent.remark = data[0].remark;
                     $scope.newsContent.content = data[0].content;
