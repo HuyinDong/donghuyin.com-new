@@ -52,7 +52,7 @@
 
 }
 #main{
-  min-height:608px;
+  min-height:625px;
   }
 #content-header{
   margin-bottom: 50px;
@@ -65,4 +65,20 @@
 #article-content{
   margin-top : 50px;,
   padding : 50px;
+}
+
+#inner{
+ padding-left:38px;
+ padding-right:20px;
+}
+
+#inner ul{
+  margin-left : 20px;
+}
+
+code{
+  font-size : 14px;
+  text-indent:0.5px;
+  vertical-align : 0.2px;
+  word-spacing : 2px;
 }

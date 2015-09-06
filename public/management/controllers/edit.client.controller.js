@@ -20,6 +20,8 @@ management.controller('editController',
         $scope.article.title ;
         $scope.article.author;
         $scope.article.abstract;
+        $scope.article.lecture;
+        $scope.article.week;
         $scope.article.cid =0;
 
         $scope.newsContent = {};
@@ -63,6 +65,8 @@ management.controller('editController',
             $scope.article.title = data[0].title;
             $scope.article.author = data[0].author;
             $scope.article.abstract = data[0].abstract;
+            $scope.article.lecture = data[0].lecture;
+            $scope.article.week = data[0].week;
             $scope.article.cid = data[0].cid;
             console.log($scope.article.cid);
             for(var i = 0; i< sub.length;i++){
@@ -71,7 +75,6 @@ management.controller('editController',
                 }
             }
                 ManagementAPI.selectOne("newscontent", $stateParams.transferredId, function (data) {
-                    console.log(data);
                     $scope.newsContent.keyword = data[0].keyword;
                     $scope.newsContent.remark = data[0].remark;
                     $scope.newsContent.content = data[0].content;

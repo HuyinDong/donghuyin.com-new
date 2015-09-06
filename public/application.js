@@ -10,7 +10,8 @@ var mainApplicationModule = angular.module('mainApplicationModule',
         'management',
         'lumx',
         'ngResource',
-        'article'
+        'article',
+        'introduction'
 
 
     ]);

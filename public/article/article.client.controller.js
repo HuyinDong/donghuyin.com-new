@@ -7,12 +7,19 @@ article.controller('articleController',function($scope,$http,$stateParams,Manage
     ManagementAPI.selectOne("newsbase",$stateParams.id,function(data){
         $scope.article = data[0];
         ManagementAPI.selectOne("newscontent",$stateParams.id,function(data){
-            console.log(data);
-            var parser = new DOMParser();
-            var doc = $.parseHTML( data[0].content );
-                $scope.doc = doc;
-            console.log(doc);
-                $scope.content = data[0];
+            $scope.content = data[0];
+            var content = data[0].content;
+          $('#inner').append(data[0].content);
+            $(document).ready(function() {
+
+                hljs.configure({
+                    languages:['java']
+                });
+
+                $('#inner code').each(function(i, Block) {
+                    hljs.highlightBlock(Block);
+                });
+            });
         });
     });
 });

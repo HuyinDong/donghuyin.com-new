@@ -46,6 +46,7 @@ exports.selectAll = function(req,res,next){
 }
 
 exports.insert = function(req,res,next){
+
     var table = 'p_'+req.params.table;
     var sql = 'insert into '+table+' set ?';
     var obj = req.body;

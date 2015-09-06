@@ -12,10 +12,10 @@ module.exports = function(app){
     app.get('/data/class',data.getClass);
     app.get('/data/content',data.getContent);
 
-    app.route('/management/data/:table').post(data.insert)
+    app.route('/management/data/:table', require('connect-ensure-login').ensureLoggedIn()).post(data.insert)
         .get(data.selectAll);
 
-    app.route('/management/data/:table/:id').delete(data.delete)
+    app.route('/management/data/:table/:id', require('connect-ensure-login').ensureLoggedIn()).delete(data.delete)
         .put(data.update)
         .get(data.selectOne);
 }
