@@ -13,7 +13,7 @@ exports.getConfig = function(req,res,next){
 
 exports.getAllBase = function(req,res,next){
     console.log('getAllBase');
-    call(connection,'select * from p_newsbase LIMIT 0 , 10',req,res,next);
+    call(connection,'select * from p_newsbase',req,res,next);
 };
 
 exports.getBase = function(req,res,next){

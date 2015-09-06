@@ -11,7 +11,7 @@
             <span class="fs-title display-block mb">{{name}}</span>
             <div class="divider divider--dark"></div>
             <ul class="list mt++">
-                <li class="list-row" ng-repeat = 'article in articles'>
+                <li class="list-row" ng-repeat = "article in articles  |  reverse | limitTo: quantity">
                     <div class="list-row__content ">
                         <span class="fs-headline display-block "><a style="text-decoration:none;"  class = ' tc-blue-300 p+' href="/#/article/{{article.cid}}/{{article.id}}">{{article.title}}</a></span>
                         <span class="display-block fs-body-3 tc-black">{{article.abstract}}</span>
