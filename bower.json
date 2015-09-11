@@ -21,6 +21,7 @@
     "angular-md5":"0.1.8",
     "angular-ui-grid":"3.0.5",
     "angular-ckeditor" : "~1.0.0",
-    "highlightjs":"8.7.0"
+    "highlightjs":"8.7.0",
+    "font-awesome-animation":"0.0.7"
   }
 }

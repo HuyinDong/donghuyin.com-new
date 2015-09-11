@@ -13,11 +13,12 @@
             <ul class="list mt++">
                 <li class="list-row" ng-repeat = "article in articles  |  reverse | limitTo: quantity">
                     <div class="list-row__content ">
-                        <span class="fs-headline display-block "><a style="text-decoration:none;"  class = ' tc-blue-300 p+' href="/#/article/{{article.cid}}/{{article.id}}">{{article.title}}</a></span>
+                        <a   class = ' tc-blue-300' href="/#/article/{{article.cid}}/{{article.id}}" style="text-decoration:none;padding:0px; "> <span class="fs-headline display-block" style="padding:0px;">{{article.title}}</span></a>
                         <span class="display-block fs-body-3 tc-black">{{article.abstract}}</span>
                     </div>
                 </li>
                 </ul>
+            <button class="btn btn--m btn--blue btn--raised " flex offset="80" ng-click = "showMore()" lx-ripple>More</button>
         </div>
         </div>
     </div>
