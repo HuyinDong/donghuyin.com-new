@@ -64,7 +64,8 @@ management.controller('addController',
                 }
             };
             var date = new Date();
-            $scope.article.date = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDay();
+
+            $scope.article.date = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
 
             $mdDialog.show({
                 templateUrl: './management/templates/dialog.html',

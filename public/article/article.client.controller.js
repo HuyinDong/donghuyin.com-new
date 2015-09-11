@@ -13,7 +13,7 @@ article.controller('articleController',function($scope,$http,$stateParams,Manage
             $(document).ready(function() {
 
                 hljs.configure({
-                    languages:['java']
+                    languages:['java','javascript']
                 });
 
                 $('#inner code').each(function(i, Block) {

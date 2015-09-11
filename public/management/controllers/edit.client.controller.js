@@ -90,7 +90,7 @@ management.controller('editController',
                 }
             }
             var date = new Date();
-            $scope.article.date = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDay();
+            $scope.article.date = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
             $scope.loading = true;
             $mdDialog.show({
                 templateUrl : './management/templates/dialog.html',
