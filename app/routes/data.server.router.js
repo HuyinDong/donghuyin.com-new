@@ -18,4 +18,4 @@ module.exports = function(app){
     app.route('/management/data/:table/:id', require('connect-ensure-login').ensureLoggedIn()).delete(data.delete)
         .put(data.update)
         .get(data.selectOne);
-}
+};

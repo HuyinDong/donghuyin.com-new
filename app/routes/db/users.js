@@ -1,3 +1,6 @@
+var connection = require('../../../config/mysql');
+var mysql = require('mysql');
+
 var records = [
     { id: 1, username: 'jack', password: 'secret', displayName: 'Jack', emails: [ { value: 'jack@example.com' } ] }
   , { id: 2, username: 'jill', password: 'birthday', displayName: 'Jill', emails: [ { value: 'jill@example.com' } ] }
@@ -6,6 +9,7 @@ var records = [
 exports.findById = function(id, cb) {
 	console.log("findById");
   process.nextTick(function() {
+
     var idx = id - 1;
     if (records[idx]) {
       cb(null, records[idx]);
@@ -13,11 +17,14 @@ exports.findById = function(id, cb) {
       cb(new Error('User ' + id + ' does not exist'));
     }
   });
-}
+};
 
 exports.findByUsername = function(username, cb) {
 console.log("findByUsername");
   process.nextTick(function() {
+  
+
+
     for (var i = 0, len = records.length; i < len; i++) {
       var record = records[i];
       if (record.username === username) {
@@ -26,4 +33,4 @@ console.log("findByUsername");
     }
     return cb(null, null);
   });
-}
+};

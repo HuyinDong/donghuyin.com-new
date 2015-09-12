@@ -46,7 +46,7 @@ management.controller('listController',
 
     $scope.editLine = function(){
             $state.go('edit', {transferredId: transferredId});
-    }
+    };
 
     $scope.deleteLine = function(){
         $scope.loading = true;

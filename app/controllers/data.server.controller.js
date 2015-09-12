@@ -43,7 +43,7 @@ exports.selectAll = function(req,res,next){
     var inserts = ["p_"+req.params["table"]];
     sql = mysql.format(sql,inserts);
     call(connection,sql,req,res,next);
-}
+};
 
 exports.insert = function(req,res,next){
 
@@ -83,7 +83,7 @@ exports.update = function(req,res,next){
            })
        }
     });
-}
+};
 
 exports.delete = function(req,res,next){
     console.log("delete");
@@ -101,7 +101,7 @@ exports.delete = function(req,res,next){
             })
         }
     });
-}
+};
 
 function call(connection,query,req,res,next){
     connection.query(query,function(err,rows){

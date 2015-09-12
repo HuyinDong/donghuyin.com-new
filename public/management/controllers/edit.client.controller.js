@@ -30,7 +30,7 @@ management.controller('editController',
         $scope.newsContent.remark;
         $scope.newsContent.content;
 
-        $scope.operate = "Update"
+        $scope.operate = "Update";
 
         $scope.selectedItem ;
         var sub = [];
