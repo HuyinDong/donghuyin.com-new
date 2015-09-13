@@ -6,7 +6,6 @@ var management = require('../controllers/management.server.controller');
 var login = require('../controllers/login.server.controller');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var db = require('./db');
 var connection = require('../../config/mysql');
 var mysql = require('mysql');
 
@@ -20,27 +19,14 @@ module.exports = function(app){
                    return done(err);
                }
                 if(user.length == 0){
-                    console.log("!user");
                     return done(null,false,{message:"Invalid Username or Password"});
                 }
                 if(user[0].password != password){
-                    console.log("!password");
                     return done(null,false, {message : "Invalid Username or Password"});
                 }
                 return done(null,user[0]);
             });
-            /*db.users.findByUsername(username, function (err, user) {
-                console.log("strategy");
-                if (err) { return done(err); }
-                if (!user) {
-                    return done(null, false);
-                }
-                if (user.password != password) {
-                    return done(null, false);
-                }
 
-                return done(null, user);
-            });*/
         }
     ));
 
