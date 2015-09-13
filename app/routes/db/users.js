@@ -22,7 +22,7 @@ exports.findById = function(id, cb) {
 exports.findByUsername = function(username, cb) {
 console.log("findByUsername");
   process.nextTick(function() {
-  
+
 
 
     for (var i = 0, len = records.length; i < len; i++) {
