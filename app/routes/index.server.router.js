@@ -6,23 +6,27 @@ var management = require('../controllers/management.server.controller');
 var login = require('../controllers/login.server.controller');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var db = require('./db');
-
+var connection = require('../../config/mysql');
+var mysql = require('mysql');
 
 module.exports = function(app){
     passport.use(new LocalStrategy(
         function(username, password, done) {
-            db.users.findByUsername(username, function (err, user) {
-                if (err) { return done(err); }
-                if (!user) {
-                    return done(null, false, { message: 'Incorrect username.' });
+            connection.query("select * from p_admin where username = '"+username+"'",function(err,user){
+                console.log(user);
+               if(err){
+                   console.log(err);
+                   return done(err);
+               }
+                if(user.length == 0){
+                    return done(null,false,{message:"Invalid Username or Password"});
                 }
-                if (user.password != password) {
-                    return done(null, false, { message: 'Incorrect password.' });
+                if(user[0].password != password){
+                    return done(null,false, {message : "Invalid Username or Password"});
                 }
-
-                return done(null, user);
+                return done(null,user[0]);
             });
+
         }
     ));
 

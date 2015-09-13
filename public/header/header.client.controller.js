@@ -58,7 +58,7 @@ header.controller('headerController',function($scope,$http,$rootScope,$state){
         $scope.clickMenu = function(id,name){
             $state.go('list',{ id: id,name : name});
 
-        }
+        };
 
         $scope.goHome = function(){
             $state.go('home');

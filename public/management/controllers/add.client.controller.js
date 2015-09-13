@@ -23,7 +23,7 @@ management.controller('addController',
         $scope.article.lecture;
         $scope.article.week;
         $scope.article.cid =0;
-        $scope.operate = "Add"
+        $scope.operate = "Add";
         $scope.newsContent = {};
 
         $scope.newsContent.keyword;
@@ -62,7 +62,7 @@ management.controller('addController',
                 if(sub[i].name == $scope.selectedItem){
                     $scope.article.cid = sub[i].id;
                 }
-            };
+            }
             var date = new Date();
 
             $scope.article.date = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
