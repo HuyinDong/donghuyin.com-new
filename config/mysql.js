@@ -10,3 +10,13 @@ var connection = mysql.createConnection({
     database : 'donghuyin'
 });
 module.exports = connection;
+
+/*  connect to cloud
+ var connection = mysql.createConnection({
+ host : 'us-cdbr-azure-west-c.cloudapp.net',
+ user : 'be93d5f3d077f4',
+ password : '514fb6cf',
+ database : 'donghuyin'
+ });
+
+ */

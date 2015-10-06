@@ -43,13 +43,11 @@ exports.selectAll = function(req,res,next){
 };
 
 exports.insert = function(req,res,next){
-
     var table = 'p_'+req.params.table;
     var sql = 'insert into '+table+' set ?';
     var obj = req.body;
     delete obj['table'];
     connection.query(sql,obj,function(err,result){
-        console.log(result);
         if(err){
             res.send(err);
         }else{
@@ -86,7 +84,6 @@ exports.delete = function(req,res,next){
     var arr = [];
     arr.push(parseInt(req.params.id));
     var sql = 'delete from '+table+' where id = ?';
-    console.log("delete",sql);
     connection.query(sql,arr,function(err,result){
         if(err){
             res.send(err);
