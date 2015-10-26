@@ -4,6 +4,6 @@ Using NodeJs and angularJS to rewrite the website. More organized codes and more
 
 1. npm install
 2. bower install
-3. url : localohost:3001
+3. import the .sql file to mysql
+4. url : localohost:3001
 
-But you still need the mysql set up, I will upload them later
