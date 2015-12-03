@@ -7,6 +7,6 @@ var express = require('./config/express');
 var app = express();
 
 
-app.listen(3001);
+app.listen(3000);
 
-console.log("Server is running at 3001 port");
+console.log("Server is running at 3000 port");

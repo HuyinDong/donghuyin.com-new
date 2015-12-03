@@ -81,3 +81,7 @@ code{
   vertical-align : 0.2px;
   word-spacing : 2px;
 }
+
+#inner {
+  margin-top : 20px;
+}

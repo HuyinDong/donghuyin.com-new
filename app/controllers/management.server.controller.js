@@ -3,6 +3,5 @@
  */
 
 module.exports = function(req,res,next){
-    console.log("management");
     res.render('management');
 };

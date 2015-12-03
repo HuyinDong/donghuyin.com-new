@@ -117,5 +117,6 @@ management.controller('editController',
                     $scope.dialogButton = "OK";
                 }
             });
+            //$state.go($state.current, {}, {reload: true});
         };
     });

@@ -43,9 +43,7 @@ module.exports = function(app){
     });
 
     passport.deserializeUser(function(id, done) {
-        db.users.findById(id, function(err, user) {
-            done(err, user);
-        });
+        done(null, id);
     });
 
     app.use(passport.initialize());
@@ -56,9 +54,9 @@ module.exports = function(app){
         passport.authenticate('local', function(err, user, info) {
             if (err) { return next(err); }
             // Redirect if it fails
-            if (!user) { return res.redirect('/login'); }
+            if (!user) {
+                return res.redirect('/login'); }
             req.logIn(user, function(err) {
-                console.log("login");
                 if (err) { return next(err); }
                 // Redirect if it succeeds
                 return res.render('management');
