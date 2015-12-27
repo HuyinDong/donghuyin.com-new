@@ -42,6 +42,27 @@ exports.selectAll = function(req,res,next){
     call(connection,sql,req,res,next);
 };
 
+exports.getMyLife = function(req,res,next){
+    var sql = 'select * from p_mylife';
+    call(connection,sql,req,res,next);
+};
+
+exports.insertMyLifeData = function(req,res,next){
+    var sql = 'insert into p_mylife set ?';
+    var obj = req.body;
+    connection.query(sql,obj,function(err,result){
+        console.log(result);
+        if(err){
+            res.send(err);
+        }else{
+            res.json({
+                msg:'sucess',
+                insertId : result.insertId
+            })
+        }
+    });
+};
+
 exports.insert = function(req,res,next){
     var table = 'p_'+req.params.table;
     var sql = 'insert into '+table+' set ?';

@@ -79,5 +79,11 @@ module.exports = function(app){
         req.logout();
         res.redirect('/');
     });
+
+    app.get('/mylife', function(req,res,next){
+        res.render('mylife');
+    })
+
+
 };
 

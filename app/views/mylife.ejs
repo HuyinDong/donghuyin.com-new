@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>My Life</title>
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../lib/lumx/dist/lumx.css">
+    <link rel="stylesheet" href="../lib/angular-material/angular-material.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <link rel="stylesheet" href="../css/styles.css">
+
+</head>
+<body ng-app = "mylife" ng-controller="mylifeController">
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id = "info" style="width:600px;margin:0 auto;">
+    <md-input-container>
+        <label>Enter today's point</label>
+        <input type="text" ng-model ="object.points">
+    </md-input-container>
+    <md-input-container class="md-block">
+        <label>Short Description for today</label>
+        <textarea ng-model="object.records" columns="1" md-maxlength="50" rows="2"></textarea>
+    </md-input-container>
+
+    <md-button class="md-raised md-primary" ng-click="record()">Record</md-button>
+</div>
+<!-- script references -->
+<script src="../lib/jquery/dist/jquery.min.js"></script>
+<script src="../lib/angular/angular.min.js"></script>
+<script src="../lib/angular-animate/angular-animate.min.js"></script>
+<script src="../lib/angular-aria/angular-aria.min.js"></script>
+<script src="../lib/angular-material/angular-material.min.js"></script>
+<script src="../lib/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="../lib/velocity/velocity.js"></script>
+<script src="../lib/moment/min/moment-with-locales.js"></script>
+<script src="../lib/lumx/dist/lumx.js"></script>
+<script src="../lib/highcharts/highcharts.js"></script>
+<script src="../lib/highcharts/modules/exporting.js"></script>
+<script src="../lib/underscore/underscore.js"></script>
+
+<script src="../mylife/mylife.client.module.js"></script>
+<script src="../mylife/mylife.client.controller.js"></script>
+    <script>
+
+    </script>
+</div>
+</body>
+</html>
