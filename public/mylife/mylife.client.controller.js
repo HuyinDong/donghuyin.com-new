@@ -1,25 +1,28 @@
 /**
  * Created by dongyin on 9/5/15.
  */
-mylife.controller("mylifeController",function($scope,$http){
+mylife.controller("mylifeController",function($scope,$http,$mdDialog){
     $scope.object = {};
 
     $scope.record = function(){
         $http.post('/data/mylife',$scope.object).then(function(data){
-            console.log(data);
+            if(data.data.msg == 'success'){
+                $mdDialog.show(
+                    $mdDialog.alert()
+                        .clickOutsideToClose(true)
+                        .title("Mylife")
+                        .content("Success")
+                        .ok("OK")
+
+                ).finally(function(){
+                    location.reload();
+                });
+            }
         });
     };
 
     $http.get('/data/mylife').then(function(data){
-        /*var points =[];
-        var records = [];
-        console.log(data);
-        for(var i = 0 ; i < data.data.length;i++){
-            points.push(data.data[i].points);
-            records.push(data.data[i].records);
-        }
-        console.log(records);
-        */
+
         var temp = data.data;
 
         var arr = _.map(temp, function(data){
@@ -29,7 +32,6 @@ mylife.controller("mylifeController",function($scope,$http){
             }
         })
 
-        console.log(arr);
         $(function () {
             $('#container').highcharts({
                 title: {

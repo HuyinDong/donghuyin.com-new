@@ -51,12 +51,11 @@ exports.insertMyLifeData = function(req,res,next){
     var sql = 'insert into p_mylife set ?';
     var obj = req.body;
     connection.query(sql,obj,function(err,result){
-        console.log(result);
         if(err){
             res.send(err);
         }else{
             res.json({
-                msg:'sucess',
+                msg:'success',
                 insertId : result.insertId
             })
         }
