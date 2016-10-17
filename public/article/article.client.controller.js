@@ -3,7 +3,7 @@
  */
 article.controller('articleController',function($scope,$http,$stateParams,ManagementAPI){
     $scope.article = {};
-    console.log($stateParams);
+  
     ManagementAPI.selectOne("newsbase",$stateParams.id,function(data){
         $scope.article = data[0];
         ManagementAPI.selectOne("newscontent",$stateParams.id,function(data){

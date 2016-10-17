@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="../lib/plugins/datatables/dataTables.bootstrap.css">
+
     <link rel="stylesheet" type="text/css" href="../lib/angular-ui-grid/ui-grid.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../css/AdminLTE.min.css">
@@ -58,32 +57,32 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                 <li class="header">MAIN NAVIGATION</li>
-                <li class="treeview" ng-click = "goHome()">
-                    <a href="#" >
+                <li class="treeview">
+                    <a ui-sref="home" >
                         <i class="fa fa-home"></i> <span>Home</span> <i class="fa fa-angle-left pull-right"></i>
                     </a>
 
                 </li>
-                <li class="treeview" ng-click = "goConfiguration()">
-                    <a href="#" >
+                <li class="treeview">
+                    <a ui-sref="configuration" >
                         <i class="fa fa-cog"></i> <span>Configuration</span> <i class="fa fa-angle-left pull-right"></i>
                     </a>
 
                 </li>
-                <li class="treeview" ng-click = "goCatagory()">
-                    <a href="#">
+                <li class="treeview">
+                    <a ui-sref="catagory">
                         <i class="fa fa-book"></i> <span>Catagory</span> <i class="fa fa-angle-left pull-right"></i>
                     </a>
 
                 </li>
-                <li class="treeview" ng-click = "goList()">
-                    <a href="#">
+                <li class="treeview">
+                    <a ui-sref="list">
                         <i class="fa fa-list"></i> <span>List</span> <i class="fa fa-angle-left pull-right"></i>
                     </a>
 
                 </li>
-                <li class="treeview" ng-click = "goAdd()">
-                    <a href="#">
+                <li class="treeview">
+                    <a ui-sref="add">
                         <i class="fa fa-plus"></i> <span>Add</span> <i class="fa fa-angle-left pull-right"></i>
                     </a>
 
@@ -122,8 +121,7 @@
     <script src = "../lib/angular-resource/angular-resource.min.js"></script>
     <script src="../lib/angular-ui-grid/ui-grid.min.js"></script>
     <!-- DataTables -->
-    <script src="../lib/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="../lib/plugins/datatables/dataTables.bootstrap.min.js"></script>
+
     <!-- AdminLTE App -->
     <script src="../js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
@@ -148,17 +146,7 @@
     <script src="./management/controllers/edit.client.controller.js"></script>
     <!-- page script -->
     <script>
-        $(function () {
-            $("#example1").DataTable();
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false
-            });
-        });
+
     </script>
 </body>
 </html>

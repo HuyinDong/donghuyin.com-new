@@ -66,7 +66,7 @@ management.controller('catagoryController',
                     obj.name = $scope.navbar;
                     $scope.loading = true;
                 }else{
-                    console.log("list",navbarList);
+
                     for(var i = 0; i<navbarList.length;i++){
                         if(navbarList[i].name == $scope.catagory){
                             obj.f_id = navbarList[i].id;
@@ -76,11 +76,11 @@ management.controller('catagoryController',
                     }
                 }
                 ManagementAPI.insert("newsclass",obj,function(data){
-                    console.log(data);
+
                     if(data.msg = 'success'){
                         $timeout(function(){
                             $scope.loading = false;
-                            console.log( $scope.loading);
+                          
                             $scope.dialogContent = "Success";
                             $scope.dialogButton = "OK";
                         },2000);

@@ -26,7 +26,7 @@ management.controller('listController',
 
     $http.get('/data/base').then(function(data){
         var items = data.data;
-        console.log(items);
+      
         for(var i = 0; i< items.length;i++){
                 items[i].date = items[i].date.split("T")[0];
         }

@@ -61,14 +61,14 @@ management.controller('editController',
         });
 
         ManagementAPI.selectOne("newsbase",$stateParams.transferredId,function(data) {
-            console.log(data);
+
             $scope.article.title = data[0].title;
             $scope.article.author = data[0].author;
             $scope.article.abstract = data[0].abstract;
             $scope.article.lecture = data[0].lecture;
             $scope.article.week = data[0].week;
             $scope.article.cid = data[0].cid;
-            console.log($scope.article.cid);
+            
             for(var i = 0; i< sub.length;i++){
                 if(sub[i].id == $scope.article.cid){
                     $scope.selectedItem  = sub[i].name;

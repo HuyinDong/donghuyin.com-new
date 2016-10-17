@@ -24,6 +24,8 @@
     "highlightjs":"8.7.0",
     "font-awesome-animation":"0.0.7",
     "highcharts":"4.2.1",
-    "underscore":"1.8.3"
+    "underscore":"1.8.3",
+    "ckeditor":"4.5.11",
+    "angular-ckeditor":"1.0.3"
   }
 }

@@ -13,9 +13,9 @@ module.exports = function(app){
     passport.use(new LocalStrategy(
         function(username, password, done) {
             connection.query("select * from p_admin where username = '"+username+"'",function(err,user){
-                console.log(user);
+
                if(err){
-                   console.log(err);
+                  
                    return done(err);
                }
                 if(user.length == 0){
@@ -86,4 +86,3 @@ module.exports = function(app){
 
 
 };
-

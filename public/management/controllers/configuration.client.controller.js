@@ -15,7 +15,7 @@ management.controller('configurationController',
                var items = data.data;
                website = items[0];
                 $scope.website = website;
-                console.log(website);
+              
             });
 
             $scope.editConfig = function(){

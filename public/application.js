@@ -11,12 +11,11 @@ var mainApplicationModule = angular.module('mainApplicationModule',
         'lumx',
         'ngResource',
         'article',
-        'introduction'
-
+        'introduction',
+        'right'
 
     ]);
 
 angular.element(document).ready(function(){
    angular.bootstrap(document,['mainApplicationModule']);
 });
-

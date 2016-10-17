@@ -31,7 +31,7 @@ management.factory('ManagementAPI',['ManagementResource','$q',
 
                 insert: function (table, object,callback) {
                     var entry = new ManagementResource();
-                    console.log(entry);
+
                     var keys = Object.keys(object);
                     for(var i = 0 ; i< keys.length;i++){
                         entry[keys[i]] = object[keys[i]];
@@ -47,24 +47,6 @@ management.factory('ManagementAPI',['ManagementResource','$q',
                     });
 
                 }
-                // $http method
-                /*  $http.post('/management/data', tran).then(function (data) {
-                 console.log(data);
-                 });
-                 */
-                /*
-                 $http.delete('/management/data/'+tran.table+'/'+'9',function(data){
-                 console.log(data);
-                 });
-
-                 $http.put('/management/data/'+tran.table+'/'+'4',{author : 'Huyin Dong'},function(data){
-                 console.log(data);
-                 })
-
-                 console.log("User");
-                 var user = ManagementResource.get({table: table , id : id}, function (u) {
-                 console.log("User",u);
-                 u.$save();
-                 });*/
+              
     };
     }]);

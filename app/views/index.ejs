@@ -42,22 +42,12 @@
         </div>
         </div>
 
-      <!-- <div layout = 'column' flex-align="space-between center" >
-    <div class="p+ bgc-red-500" >
-    <h4>Introduction</h4>
-    <p></p>
-    </div>
-        <div flex>
-            <h4>Email</h4>
-            <p>donghuyin@gmail.com</p>
-        </div>
-       </div>
-    </div>-->
 </div>
-<div ui-view flex = '60' class="md-whiteframe-z2"></div>
+<div ui-view flex = '60'></div>
     <div flex="20"   id = "right" >
         <div id = 'related'>
-        <div  class = "md-headline " layout="column" layout-align="center center">Reserved for Ads</div>
+        <div  class = "md-headline " layout="column" layout-align="center center">Articles Catagories</div>
+          <ul    layout="column" layout-align="center center" class="list mt++" ng-include="'right/right.client.view.html'" ng-controller = 'rightController'></ul>
     </div>
     </div>
 <div   ng-include="'sidenav/sidenav.client.view.html'"></div>
@@ -92,6 +82,8 @@
     <script src="./article/article.client.controller.js"></script>
     <script src="./introduction/introduction.client.module.js"></script>
     <script src="./introduction/introduction.client.controller.js"></script>
+    <script src="./right/right.client.module.js"></script>
+    <script src="./right/right.client.controller.js"></script>
 <script src="./management/management.client.module.js"></script>
 
     <script src="./management/management.client.service.js"></script>
